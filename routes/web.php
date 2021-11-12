@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministratorController;
 
 /*
@@ -17,6 +18,9 @@ use App\Http\Controllers\AdministratorController;
 Route::get('/', function () {
     return view('auth/login');
 });
+
+require __DIR__.'/auth.php';
+
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
 Route::get('getCity/{id}', function ($id) {
@@ -50,6 +54,3 @@ Route::post('/administrator/users/store', [AdminUserController::class, 'store'])
 //OPERATOR ROUTES
 
 //EXECUTIVE ROUTES
-
-
-require __DIR__.'/auth.php';
