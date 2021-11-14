@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\PrincipalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,7 @@ Route::post('/administrator/users/store', [AdminUserController::class, 'store'])
 //TEACHER ROUTES
 
 //PRINCIPAL ROUTES
+Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');
 
 //STUDENT ROUTES
 

@@ -9,7 +9,7 @@ class StudentPersonalData extends Model
 {
     use HasFactory;
 
-    protected $table = 'personal_datas';
+    protected $table = 'student_personal_data';
 
     protected $casts = [
       'id' => 'string',
