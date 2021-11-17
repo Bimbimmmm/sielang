@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
       });
 
       Gate::define('isOperator', function($user) {
-          $getisoperatorid=Roles::where('name', 'Operator')->first();
+          $getisoperatorid=Roles::where('name', 'Operator Sekolah')->first();
           return $user->role_id == $getisoperatorid->id;
       });
 

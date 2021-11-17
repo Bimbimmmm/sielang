@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\TeachingHour;
+use Validator;
+use Alert;
 
-class TeacherController extends Controller
+class TeacherTeachingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher/index');
+        $user_id = auth()->user()->id;
+        $datas=TeachingHour::where(['user_id' => $user_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+        return view('teacher/teaching/index', compact('datas'));
     }
 
     /**
@@ -45,7 +51,8 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=TeachingHour::where('id', $id)->first();
+        return view('teacher/teaching/show', compact('data'));
     }
 
     /**

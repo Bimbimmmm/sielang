@@ -62,7 +62,6 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-
       $rules = [
           'name'                  => 'required',
           'registration_number'   => 'required',
@@ -177,6 +176,7 @@ class AdminUserController extends Controller
       $user->password = Hash::make($request->password);
       $user->teacher_personal_data_id = $get->id;
       $user->role_id = $request->role_id;
+      $user->school_id = $request->school_id;
       $user->is_deleted = FALSE;
       $save2 = $user->save();
 

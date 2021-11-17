@@ -1,20 +1,20 @@
-@extends('layouts.admin')
+@extends('layouts.operator')
 @section('content')
 <div class="container mx-auto px-4 sm:px-8">
   <div class="py-8">
     <div>
-      <h2 class="text-2xl text-center leading-tight">AKUN PENGGUNA</h2>
+      <h2 class="text-2xl text-center leading-tight">AKUN SISWA</h2>
     </div>
     <div class="my-2 flex sm:flex-row flex-col">
       <div class="block relative">
-        <a class="text-white" href="/administrator/users/create">
+        <a class="text-white" href="/operator/users/create">
           <div class="flex items-center p-4 bg-green-500 rounded-lg shadow-xs cursor-pointer hover:bg-green-200 hover:text-gray-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
             <div>
               <p class=" text-xs font-bold ml-2 ">
-                TAMBAH USER
+                TAMBAH SISWA
               </p>
             </div>
           </div>
@@ -30,10 +30,6 @@
               class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
               Nama
             </th>
-            <th
-            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-            Sekolah
-          </th>
           <th
           class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
           Email
@@ -99,11 +95,6 @@
     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
       <p class="text-gray-900 whitespace-no-wrap">
         {{$data->email}}
-      </p>
-    </td>
-    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-      <p class="text-gray-900 whitespace-no-wrap">
-        {{$data->role->name}}
       </p>
     </td>
     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

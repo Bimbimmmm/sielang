@@ -19,7 +19,6 @@ class StudentPersonalData extends Model
 
     protected $fillable = [
         'name',
-        'registration_number',
         'id_number',
         'student_number',
         'national_student_number',

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ClassModel;
+use Validator;
+use Alert;
 
-class TeacherController extends Controller
+class OperatorClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher/index');
+        $operator = auth()->user()->school_id;
+        $datas=ClassModel::where(['school_id' => $operator, 'is_deleted' => FALSE])->get();
+        return view('operator/class/index', compact('datas'));
     }
 
     /**
@@ -23,7 +28,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('operator/class/create');
     }
 
     /**
@@ -34,7 +39,38 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = [
+          'name'    => 'required',
+          'major'   => 'required'
+      ];
+
+      $messages = [
+          'name.required'   => 'Nama Kelas Wajib Diisi',
+          'major.required'  => 'Jurusan wajib diisi'
+      ];
+
+      $validator = Validator::make($request->all(), $rules, $messages);
+
+      if($validator->fails()){
+          return redirect()->back()->withErrors($validator)->withInput($request->all);
+      }
+
+      $school_id = auth()->user()->teacherPersonalData->school_id;
+
+      $data = new ClassModel;
+      $data->name = $request->name;
+      $data->major = $request->major;
+      $data->school_id = $school_id;
+      $data->is_deleted =FALSE;
+      $save = $data->save();
+
+      if($save){
+          Alert::success('Berhasil', 'Kelas dan Jurusan Berhasil Dibuat');
+          return redirect()->route('operatorclassindex');
+      } else {
+          Alert::error('Gagal', 'Gagal Membuat Kelas dan Jurusan! Silahkan ulangi beberapa saat lagi');
+          return redirect()->route('operatorclasscreate');
+      }
     }
 
     /**

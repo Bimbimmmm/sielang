@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
           $table->foreign('teacher_personal_data_id')->references('id')->on('teacher_personal_data');
           $table->uuid('student_personal_data_id')->nullable();
           $table->foreign('student_personal_data_id')->references('id')->on('student_personal_data');
+          $table->integer('school_id');
+          $table->foreign('school_id')->references('id')->on('reference_schools');
           $table->uuid('role_id');
           $table->foreign('role_id')->references('id')->on('roles');
           $table->boolean('is_deleted');

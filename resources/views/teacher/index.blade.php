@@ -1,4 +1,4 @@
-@extends('layouts.principal')
+@extends('layouts.teacher')
 @section('content')
 <div class="bg-indigo-900 relative overflow-hidden">
   <div class="inset-0 bg-black opacity-25 absolute"></div>
@@ -24,12 +24,12 @@
     <h1 class="mb-12 text-center text-4xl text-gray-500 font-bold">Fitur-Fitur SIELANG</h1>
     <div class="flex flex-wrap">
 
-      <a href="/principal/schooldata" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 mb-4 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+      <a href="/teacher/schooldata" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 mb-4 transition duration-500 transform hover:translate-y-3 cursor-pointer">
         <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-3 xl:mb-0 shadow-lg">
           <div class="flex-auto p-4">
             <div class="flex flex-wrap">
               <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Sekolah</h5>
+                <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Diri</h5>
                 <span class="font-semibold text-xl text-blueGray-700">0</span>
               </div>
               <div class="relative w-auto pl-4 flex-initial">
@@ -49,12 +49,12 @@
           </div>
         </a>
 
-        <a href="/principal/teaching" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 mb-4 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+        <a href="/teacher/teaching" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 mb-4 transition duration-500 transform hover:translate-y-3 cursor-pointer">
           <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-3 xl:mb-0 shadow-lg">
             <div class="flex-auto p-4">
               <div class="flex flex-wrap">
                 <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                  <h5 class="text-blueGray-400 uppercase font-bold text-xl">Jam Mengajar Guru</h5>
+                  <h5 class="text-blueGray-400 uppercase font-bold text-xl">Kelas Yang Diampuh</h5>
                   <span class="font-semibold text-xl text-blueGray-700">0</span>
                 </div>
                 <div class="relative w-auto pl-4 flex-initial">
@@ -69,12 +69,12 @@
               </div>
               <p class="text-sm text-blueGray-400 mt-4">
                 <span class="text-emerald-500 mr-2">0</span>
-                <span class="whitespace-nowrap">Total Cuti Diproses</span></p>
+                <span class="whitespace-nowrap">Total Kelas Keseluruhan</span></p>
               </div>
             </div>
           </a>
 
-          <a href="/principal/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+          <a href="/teacher/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
             <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-4 xl:mb-0 shadow-lg">
               <div class="flex-auto p-4">
                 <div class="flex flex-wrap">
@@ -99,7 +99,7 @@
               </div>
             </a>
 
-            <a href="/principal/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+            <a href="/teacher/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
               <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                 <div class="flex-auto p-4">
                   <div class="flex flex-wrap">

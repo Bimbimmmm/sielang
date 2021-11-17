@@ -15,14 +15,14 @@ class ReferenceSchoolSeeder extends Seeder
     {
       \DB::table('reference_schools')->insert([
           [
-              'name' => 'SMAN 1 Krayan',
-              'national_school_number' => '30400533',
+              'name' => 'Cabang Dinas Pendidikan dan Kebudayaan Provinsi Kalimantan Utara Wilayah Nunukan',
+              'national_school_number' => 'xxxx',
               'is_public' => TRUE,
-              'address' => 'Jl. Kampung Baru',
+              'address' => 'Jl. Iskandar Muda',
               'province' => 'KALIMANTAN UTARA',
               'city' => 'KABUPATEN NUNUKAN',
-              'district' => 'KRAYAN',
-              'village' => 'LONG BAWAN',
+              'district' => 'NUNUKAN',
+              'village' => 'NUNUKAN BARAT',
               'zip_code' => '77456',
               'is_deleted' => FALSE
           ]

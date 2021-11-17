@@ -27,6 +27,7 @@ class User extends Authenticatable
       'password',
       'student_personal_data_id',
       'teacher_personal_data_id',
+      'school_id',
       'role_id',
       'is_deleted',
     ];
@@ -41,9 +42,19 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+     public function teachingHour()
+     {
+       return $this->hasMany('App\Models\TeachingHour', 'id');
+     }
+
      public function role()
      {
        return $this->belongsTo('App\Models\Roles', 'role_id');
+     }
+
+     public function schooll()
+     {
+       return $this->belongsTo('App\Models\School', 'school_id');
      }
 
      public function teacherPersonalData()
