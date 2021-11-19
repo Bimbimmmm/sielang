@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\TeachingHour;
+use App\Models\ClassTask;
+use App\Models\ClassQuiz;
+use App\Models\ClassExam;
 use Validator;
 use Alert;
 
@@ -51,8 +54,17 @@ class TeacherTeachingController extends Controller
      */
     public function show($id)
     {
+        $check=TeachingHour::where('id', $id)->count();
         $data=TeachingHour::where('id', $id)->first();
-        return view('teacher/teaching/show', compact('data'));
+        $tasks=ClassTask::where('teaching_hour_id' , $id)->get();
+        $quizs=ClassQuiz::where('teaching_hour_id' , $id)->get();
+        $exams=ClassExam::where('teaching_hour_id' , $id)->get();
+        if($check > 0){
+          return view('teacher/teaching/show', compact('data', 'tasks', 'quizs', 'exams'));
+        }else{
+          Alert::error('Gagal', 'Data Tidak Ditemukan!');
+          return redirect()->route('teacherteachingindex');
+        }
     }
 
     /**

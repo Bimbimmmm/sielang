@@ -49,4 +49,20 @@ class TeachingHour extends Model
       return $this->hasMany('App\Models\MeetingRoom', 'id');
     }
 
+    public function classExam()
+    {
+      return $this->hasMany('App\Models\ClassExam', 'id');
+    }
+
+    public function classQuiz()
+    {
+      return $this->hasMany('App\Models\ClassQuiz', 'id');
+    }
+
+    public function classTask()
+    {
+      return $this->hasMany('App\Models\ClassTask', 'id');
+    }
+
+
 }
