@@ -60,7 +60,7 @@ class TeacherTeachingController extends Controller
         $quizs=ClassQuiz::where('teaching_hour_id' , $id)->get();
         $exams=ClassExam::where('teaching_hour_id' , $id)->get();
         if($check > 0){
-          return view('teacher/teaching/show', compact('data', 'tasks', 'quizs', 'exams'));
+          return view('teacher/teaching/show', compact('data', 'tasks', 'quizs', 'exams', 'id'));
         }else{
           Alert::error('Gagal', 'Data Tidak Ditemukan!');
           return redirect()->route('teacherteachingindex');

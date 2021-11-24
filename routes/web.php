@@ -65,12 +65,24 @@ Route::get('/teacher/teaching/show/{id}', [TeacherTeachingController::class, 'sh
 //Teacher Class Task Routes
 Route::get('/teacher/class/task/create/{id}', [TeacherMeetingClassTaskController::class, 'create'])->middleware('can:isTeacher')->name('teachertaskcreate');
 Route::post('/teacher/class/task/store/{id}', [TeacherMeetingClassTaskController::class, 'store'])->middleware('can:isTeacher')->name('teachertaskstore');
+Route::get('/teacher/class/task/show/{id}/{idt}', [TeacherMeetingClassTaskController::class, 'show'])->middleware('can:isTeacher')->name('teachertaskshow');
 //Teacher Class Quiz Routes
 Route::get('/teacher/class/quiz/create/{id}', [TeacherMeetingClassQuizController::class, 'create'])->middleware('can:isTeacher')->name('teacherquizcreate');
 Route::post('/teacher/class/quiz/store/{id}', [TeacherMeetingClassQuizController::class, 'store'])->middleware('can:isTeacher')->name('teacherquizstore');
+Route::get('/teacher/class/quiz/show/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'show'])->middleware('can:isTeacher')->name('teacherquizshow');
+Route::get('/teacher/class/quiz/create/question/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'createquestion'])->middleware('can:isTeacher')->name('teacherquizcrquestion');
+Route::post('/teacher/class/quiz/question/store/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'storequestion'])->middleware('can:isTeacher')->name('teacherquizstorequestion');
+Route::get('/teacher/class/quiz/question/show/{id}/{idq}/{idt}', [TeacherMeetingClassQuizController::class, 'showquestion'])->middleware('can:isTeacher')->name('teacherquizshowquestion');
+Route::get('/teacher/class/quiz/question/delete/{id}', [TeacherMeetingClassQuizController::class, 'delete'])->middleware('can:isTeacher')->name('teacherquizdeletequestion');
+
 //Teacher Class Exam Routes
 Route::get('/teacher/class/exam/create/{id}', [TeacherMeetingClassExamController::class, 'create'])->middleware('can:isTeacher')->name('teacherexamcreate');
 Route::post('/teacher/class/exam/store/{id}', [TeacherMeetingClassExamController::class, 'store'])->middleware('can:isTeacher')->name('teacherexamstore');
+Route::get('/teacher/class/exam/show/{id}/{idt}', [TeacherMeetingClassExamController::class, 'show'])->middleware('can:isTeacher')->name('teacherexamshow');
+Route::get('/teacher/class/exam/create/question/{id}/{idt}', [TeacherMeetingClassExamController::class, 'createquestion'])->middleware('can:isTeacher')->name('teacherexamcrquestion');
+Route::post('/teacher/class/exam/question/store/{id}/{idt}', [TeacherMeetingClassExamController::class, 'storequestion'])->middleware('can:isTeacher')->name('teacherexamstorequestion');
+Route::get('/teacher/class/exam/question/show/{id}/{idq}/{idt}', [TeacherMeetingClassExamController::class, 'showquestion'])->middleware('can:isTeacher')->name('teacherexamshowquestion');
+Route::get('/teacher/class/exam/question/delete/{id}', [TeacherMeetingClassExamController::class, 'delete'])->middleware('can:isTeacher')->name('teacherexamdeletequestion');
 
 //PRINCIPAL ROUTES
 Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');

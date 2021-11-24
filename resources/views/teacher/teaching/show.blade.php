@@ -134,7 +134,7 @@
                 @endif
               </td>
               <td class="px-4 py-3 text-ms border">
-                <a href="{{ url ('/teacher/class/task/show', array("$task->id")) }}" class="text-green-600 hover:text-green-400 mr-2">
+                <a href="/teacher/class/task/show/{{$task->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined text-base">visibility</i>
                 </a>
                 <a href="{{ url ('/teacher/class/task/delete', array("$task->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
@@ -194,10 +194,10 @@
                 @endif
               </td>
               <td class="px-4 py-3 text-ms border">
-                <a href="{{ url ('/teacher/class/quiz/show', array("$task->id")) }}" class="text-green-600 hover:text-green-400 mr-2">
+                <a href="/teacher/class/quiz/show/{{$quiz->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined text-base">visibility</i>
                 </a>
-                <a href="{{ url ('/teacher/class/quiz/delete', array("$task->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
+                <a href="{{ url ('/teacher/class/quiz/delete', array("$quiz->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
                   <i class="material-icons-round text-base">delete_outline</i>
                 </a>
               </td>
@@ -239,13 +239,30 @@
             </tr>
           </thead>
           <tbody class="bg-white">
+            @foreach($exams as $exam)
             <tr class="text-gray-700 text-center">
-              <td class="px-4 py-3 text-ms border font-semibold"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
+              <td class="px-4 py-3 text-ms border font-semibold">{{$exam->name}}</td>
+              <td class="px-4 py-3 text-ms border">{{$exam->start_date->formatLocalized("%d/%m/%Y")}}</td>
+              <td class="px-4 py-3 text-ms border">{{$exam->expired_date->formatLocalized("%d/%m/%Y")}}</td>
+              <td class="px-4 py-3 text-ms border">
+                @if($exam->is_locked == FALSE)
+                <span class="inline-block rounded-full text-white bg-gray-500 px-2 py-1 text-xs font-bold mr-3">Bekun Dikunci</span>
+                @elseif($exam->is_locked == TRUE && $exam->is_active == TRUE)
+                <span class="inline-block rounded-full text-white bg-green-500 px-2 py-1 text-xs font-bold mr-3">Aktif</span>
+                @elseif($exam->is_locked == TRUE && $exam->is_active == FALSE)
+                <span class="inline-block rounded-full text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">Tidak Aktif</span>
+                @endif
+              </td>
+              <td class="px-4 py-3 text-ms border">
+                <a href="/teacher/class/exam/show/{{$exam->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
+                  <i class="material-icons-outlined text-base">visibility</i>
+                </a>
+                <a href="{{ url ('/teacher/class/exam/delete', array("$exam->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
+                  <i class="material-icons-round text-base">delete_outline</i>
+                </a>
+              </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

@@ -20,6 +20,7 @@ class ClassQuizChoice extends Model
         'name',
         'meeting_quiz_question_id',
         'choice',
+        'file',
         'is_answer'
     ];
 

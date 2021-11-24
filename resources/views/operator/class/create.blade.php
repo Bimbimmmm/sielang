@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.operator')
 @section('content')
 <div class="container px-4 sm:px-8">
   <div class="py-8">

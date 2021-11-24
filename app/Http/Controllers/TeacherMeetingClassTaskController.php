@@ -106,9 +106,11 @@ class TeacherMeetingClassTaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $idt)
     {
-        //
+      $data=ClassTask::where('id', $id)->first();
+      $collections=ClassTaskCollection::where(['meeting_task_id' => $id, 'is_deleted' => FALSE])->get();
+      return view('teacher/teaching/task/show', compact('data', 'collections', 'idt'));
     }
 
     /**

@@ -47,6 +47,11 @@ class User extends Authenticatable
        return $this->hasMany('App\Models\TeachingHour', 'id');
      }
 
+     public function classTaskCollection()
+     {
+       return $this->hasMany('App\Models\ClassTaskCollection', 'id');
+     }
+
      public function role()
      {
        return $this->belongsTo('App\Models\Roles', 'role_id');
