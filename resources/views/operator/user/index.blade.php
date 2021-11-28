@@ -99,10 +99,10 @@
     </td>
     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
       <a href="{{ url ('/administrator/user/show', array("$data->id")) }}" class="text-green-600 hover:text-green-400 mr-2">
-        <i class="material-icons-outlined text-base">visibility</i>
+        <i class="material-icons-outlined">visibility</i>
       </a>
       <a href="#" class="text-red-600 hover:text-red-400    ml-2">
-        <i class="material-icons-round text-base">delete_outline</i>
+        <i class="material-icons-round">delete_outline</i>
       </a>
     </td>
   </div>

@@ -112,10 +112,10 @@
                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
                   <p class="text-gray-900 whitespace-no-wrap">
                     <a href="{{ url ('/teacher/class/exam/question/show', array("$question->id" , "$id", "$idt")) }}" class="text-green-600 hover:text-green-400 mr-2">
-                      <i class="material-icons-outlined text-base">visibility</i>
+                      <i class="material-icons-outlined">visibility</i>
                     </a>
                     <a href="{{ url ('/teacher/class/exam/question/delete', array("$question->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
-                      <i class="material-icons-round text-base">delete_outline</i>
+                      <i class="material-icons-round">delete_outline</i>
                     </a>
                   </p>
                 </td>
@@ -124,6 +124,28 @@
             </tbody>
           </table>
         </div>
+        @if($data->is_locked == FALSE)
+        <div class="flex items-center justify-center mt-10">
+          <div class="w-full max-w-md mr-4">
+            <form action="{{ route('teacherexamlock', array("$data->id"))}}" method="POST" class="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4 border-2 border-red-500">
+              @csrf
+              <div class="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
+                Kunci Ujian
+              </div>
+              <div class="mb-6 text-center">
+                <label class="block text-gray-700 text-sm font-normal mb-2" for="password">
+                  Jika Ujian Sudah Dikunci, Perubahan Sudah Tidak Dapat Dilakukan
+                </label>
+              </div>
+              <div class="flex items-center justify-center">
+                <button class="shadow bg-red-600 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                  Kunci
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        @endif
         @if($data->is_active == TRUE)
         <div class="w-full overflow-x-auto py-5">
           <h1 class="mb-6 text-center text-2xl text-gray-600 font-bold">Hasil Ujian Siswa</h1>

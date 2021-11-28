@@ -18,9 +18,15 @@ class TeacherMeetingClassQuizController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
-  public function index()
+  public function lock($id)
   {
-    //
+    $data = ClassQuiz::findOrFail($id);
+    $data->update([
+          'is_locked'   => TRUE,
+          'is_active'   => TRUE
+      ]);
+    Alert::success('Berhasil', 'Kuis Berhasil Diaktifkan');
+    return redirect()->back();
   }
 
   /**

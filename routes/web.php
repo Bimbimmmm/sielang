@@ -15,6 +15,9 @@ use App\Http\Controllers\TeacherTeachingController;
 use App\Http\Controllers\TeacherMeetingClassTaskController;
 use App\Http\Controllers\TeacherMeetingClassQuizController;
 use App\Http\Controllers\TeacherMeetingClassExamController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentClassListController;
+use App\Http\Controllers\StudentClassController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +73,7 @@ Route::get('/teacher/class/task/show/{id}/{idt}', [TeacherMeetingClassTaskContro
 Route::get('/teacher/class/quiz/create/{id}', [TeacherMeetingClassQuizController::class, 'create'])->middleware('can:isTeacher')->name('teacherquizcreate');
 Route::post('/teacher/class/quiz/store/{id}', [TeacherMeetingClassQuizController::class, 'store'])->middleware('can:isTeacher')->name('teacherquizstore');
 Route::get('/teacher/class/quiz/show/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'show'])->middleware('can:isTeacher')->name('teacherquizshow');
+Route::post('/teacher/class/quiz/lock/{id}', [TeacherMeetingClassQuizController::class, 'lock'])->middleware('can:isTeacher')->name('teacherquizlock');
 Route::get('/teacher/class/quiz/create/question/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'createquestion'])->middleware('can:isTeacher')->name('teacherquizcrquestion');
 Route::post('/teacher/class/quiz/question/store/{id}/{idt}', [TeacherMeetingClassQuizController::class, 'storequestion'])->middleware('can:isTeacher')->name('teacherquizstorequestion');
 Route::get('/teacher/class/quiz/question/show/{id}/{idq}/{idt}', [TeacherMeetingClassQuizController::class, 'showquestion'])->middleware('can:isTeacher')->name('teacherquizshowquestion');
@@ -79,6 +83,7 @@ Route::get('/teacher/class/quiz/question/delete/{id}', [TeacherMeetingClassQuizC
 Route::get('/teacher/class/exam/create/{id}', [TeacherMeetingClassExamController::class, 'create'])->middleware('can:isTeacher')->name('teacherexamcreate');
 Route::post('/teacher/class/exam/store/{id}', [TeacherMeetingClassExamController::class, 'store'])->middleware('can:isTeacher')->name('teacherexamstore');
 Route::get('/teacher/class/exam/show/{id}/{idt}', [TeacherMeetingClassExamController::class, 'show'])->middleware('can:isTeacher')->name('teacherexamshow');
+Route::post('/teacher/class/exam/lock/{id}', [TeacherMeetingClassExamController::class, 'lock'])->middleware('can:isTeacher')->name('teacherexamlock');
 Route::get('/teacher/class/exam/create/question/{id}/{idt}', [TeacherMeetingClassExamController::class, 'createquestion'])->middleware('can:isTeacher')->name('teacherexamcrquestion');
 Route::post('/teacher/class/exam/question/store/{id}/{idt}', [TeacherMeetingClassExamController::class, 'storequestion'])->middleware('can:isTeacher')->name('teacherexamstorequestion');
 Route::get('/teacher/class/exam/question/show/{id}/{idq}/{idt}', [TeacherMeetingClassExamController::class, 'showquestion'])->middleware('can:isTeacher')->name('teacherexamshowquestion');
@@ -93,6 +98,13 @@ Route::post('/principal/teaching/store', [PrincipalTeachingController::class, 's
 
 
 //STUDENT ROUTES
+Route::get('/student', [StudentController::class, 'index'])->middleware('can:isStudent')->name('student');
+//Student Studying Routes
+Route::get('/student/classlist', [StudentClassListController::class, 'index'])->middleware('can:isStudent')->name('studentcl');
+Route::get('/student/classlist/enrolled/{id}', [StudentClassListController::class, 'enrolled'])->middleware('can:isStudent')->name('studentclenrolled');
+//Student Class Routes
+Route::get('/student/class', [StudentClassController::class, 'index'])->middleware('can:isStudent')->name('studentclass');
+Route::get('/student/class/show/{id}', [StudentClassController::class, 'show'])->middleware('can:isStudent')->name('studentclasshow');
 
 //OPERATOR ROUTES
 Route::get('/operator', [OperatorController::class, 'index'])->middleware('can:isOperator')->name('operator');

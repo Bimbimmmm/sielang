@@ -18,10 +18,16 @@ class TeacherMeetingClassExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+     public function lock($id)
+     {
+       $data = ClassExam::findOrFail($id);
+       $data->update([
+             'is_locked'   => TRUE,
+             'is_active'   => TRUE
+         ]);
+       Alert::success('Berhasil', 'Ujian Berhasil Diaktifkan');
+       return redirect()->back();
+     }
 
     /**
      * Show the form for creating a new resource.

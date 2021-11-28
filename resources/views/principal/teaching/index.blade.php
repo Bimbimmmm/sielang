@@ -54,7 +54,7 @@
             </td>
             <td class="px-4 py-3 text-sm border">
               <a href="{{ url ('/principal/teaching/show', array("$data->id")) }}" class="text-green-600 hover:text-green-400 mr-2">
-                <i class="material-icons-outlined text-base">visibility</i>
+                <i class="material-icons-outlined">visibility</i>
               </a>
             </td>
           </tr>

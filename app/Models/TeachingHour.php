@@ -64,5 +64,10 @@ class TeachingHour extends Model
       return $this->hasMany('App\Models\ClassTask', 'id');
     }
 
+    public function studentEnrolled()
+    {
+      return $this->hasMany('App\Models\StudentEnrolled', 'id');
+    }
+
 
 }

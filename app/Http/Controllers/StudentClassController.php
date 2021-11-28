@@ -3,8 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\StudentEnrolled;
+use App\Models\ClassTask;
+use App\Models\ClassQuiz;
+use App\Models\ClassExam;
+use Validator;
+use Alert;
 
-class StudentController extends Controller
+class StudentClassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +19,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('student/index');
+        $school_id = auth()->user()->school_id;
+        $user_id = auth()->user()->id;
+        $datas=StudentEnrolled::where(['user_id' => $user_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+        return view('student/class/index', compact('datas'));
     }
 
     /**
@@ -45,7 +54,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+      $data=StudentEnrolled::where('id', $id)->first();
+      $tasks=ClassTask::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+      $quizs=ClassQuiz::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+      $exams=ClassExam::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+      return view('student/class/show', compact('data', 'tasks', 'quizs', 'exams', 'id'));
     }
 
     /**
