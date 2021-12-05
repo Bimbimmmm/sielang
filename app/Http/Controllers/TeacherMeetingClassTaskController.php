@@ -74,7 +74,7 @@ class TeacherMeetingClassTaskController extends Controller
 
         if($request->file != null){
           $original_name = $request->file->getClientOriginalName();
-          $file = 'file_lampiran_tugas' . time() . '_' . $original_name;
+          $file = 'file_lampiran_tugas_' . time() . '_' . $original_name;
           $request->file->move(public_path('storage/task'), $file);
         }else{
           $file = null;

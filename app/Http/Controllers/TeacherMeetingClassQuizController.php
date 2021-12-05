@@ -57,6 +57,7 @@ class TeacherMeetingClassQuizController extends Controller
       'name'               => 'required',
       'start_date'         => 'required',
       'expired_date'       => 'required',
+      'working_time'       => 'required',
       'file.*'             => 'mimes:png,jpg,pdf|max:2048'
     ];
 
@@ -64,6 +65,7 @@ class TeacherMeetingClassQuizController extends Controller
       'name.required'               => 'Nama Wajib Diisi',
       'start_date.required'         => 'Tanggal Mulai Kuis Wajib Diisi',
       'expired_date.required'       => 'Tanggal Expired Kuis Wajib Diisi',
+      'working_time.required'       => 'Waktu Pengerjaan Kuis Wajib Diisi',
       'file.mimes'                  => 'File Kisi-Kisi wajib berekstensi .png atau .jpg atau .pdf'
     ];
 
@@ -78,7 +80,7 @@ class TeacherMeetingClassQuizController extends Controller
 
     if($request->file != null){
       $original_name = $request->file->getClientOriginalName();
-      $file = 'file_lampiran_kuis' . time() . '_' . $original_name;
+      $file = 'file_lampiran_kuis_' . time() . '_' . $original_name;
       $request->file->move(public_path('storage/quiz'), $file);
     }else{
       $file = null;
@@ -87,6 +89,7 @@ class TeacherMeetingClassQuizController extends Controller
     $data = new ClassQuiz;
     $data->name = $request->name;
     $data->teaching_hour_id = $id;
+    $data->working_time = $request->working_time;
     $data->start_date = $start_date;
     $data->expired_date = $expired_date;
     $data->file = $file;
@@ -133,9 +136,9 @@ class TeacherMeetingClassQuizController extends Controller
   public function storequestion(Request $request, $id, $idt)
   {
     $rules = [
-      'question'            => 'required',
-      'is_multiple_choice'  => 'required',
-      'file.*'              => 'mimes:png,jpg|max:2048',
+      'question'                  => 'required',
+      'is_multiple_choice'        => 'required',
+      'file.*'                    => 'mimes:png,jpg|max:2048',
       'file_answer_option_1.*'    => 'mimes:png,jpg|max:2048',
       'file_answer_option_2.*'    => 'mimes:png,jpg|max:2048',
       'file_answer_option_3.*'    => 'mimes:png,jpg|max:2048',
@@ -144,11 +147,11 @@ class TeacherMeetingClassQuizController extends Controller
     ];
 
     $messages = [
-      'question.required'           => 'Pertanyaan Wajib Diisi',
-      'is_multiple_choice.required' => 'Jenis Pertanyaan Wajib Dipilih',
-      'start_date.required'         => 'Tanggal Mulai Tugas Wajib Diisi',
-      'expired_date.required'       => 'Tanggal Expired Tugas Wajib Diisi',
-      'file.mimes'                  => 'File Tugas wajib berekstensi .png atau .jpg dan maksimal 2mb',
+      'question.required'               => 'Pertanyaan Wajib Diisi',
+      'is_multiple_choice.required'     => 'Jenis Pertanyaan Wajib Dipilih',
+      'start_date.required'             => 'Tanggal Mulai Tugas Wajib Diisi',
+      'expired_date.required'           => 'Tanggal Expired Tugas Wajib Diisi',
+      'file.mimes'                      => 'File Tugas wajib berekstensi .png atau .jpg dan maksimal 2mb',
       'file_answer_option_1.mimes'      => 'File Lampiran Jawaban 1 wajib berekstensi .png atau .jpg dan maksimal 2mb',
       'file_answer_option_2.mimes'      => 'File Lampiran Jawaban 2 wajib berekstensi .png atau .jpg dan maksimal 2mb',
       'file_answer_option_3.mimes'      => 'File Lampiran Jawaban 3 wajib berekstensi .png atau .jpg dan maksimal 2mb',

@@ -6,7 +6,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>SIELANG</title>
-  <link rel="shortcut icon" href="{{ asset('images/kaltara.png') }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}" />
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/chat.css') }}">

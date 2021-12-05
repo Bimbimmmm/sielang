@@ -20,6 +20,7 @@ class ClassQuiz extends Model
         'name',
         'teaching_hour_id',
         'file',
+        'working_time',
         'is_locked',
         'is_active',
         'is_deleted'
@@ -38,5 +39,10 @@ class ClassQuiz extends Model
     public function classQuizQuestion()
     {
       return $this->hasMany('App\Models\ClassQuizQuestion', 'id');
+    }
+
+    public function classQuizCollection()
+    {
+      return $this->hasMany('App\Models\ClassQuizCollection', 'id');
     }
 }

@@ -22,6 +22,8 @@ class CreateMeetingQuizTable extends Migration
         $table->timestamp('start_date');
         $table->timestamp('expired_date');
         $table->string('file')->nullable();
+        $table->integer('working_time');
+        $table->boolean('is_locked');
         $table->boolean('is_active');
         $table->boolean('is_deleted');
         $table->timestamps();

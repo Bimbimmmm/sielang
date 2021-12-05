@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClassQuizQuestion extends Model
+class ClassQuizCollection extends Model
 {
     use HasFactory;
-    protected $table = 'meeting_quiz_question';
+    protected $table = 'meeting_quiz_collection';
 
     protected $casts = [
       'id' => 'string',
@@ -17,10 +17,13 @@ class ClassQuizQuestion extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'meeting_quiz_id',
-        'question',
-        'question_file',
-        'is_multiple_choice',
+        'meeting_quiz',
+        'user_id',
+        'multiple_choice_score',
+        'essay_score',
+        'total_score',
+        'is_finished',
+        'is_scored',
         'is_deleted'
     ];
 
@@ -29,9 +32,9 @@ class ClassQuizQuestion extends Model
       return $this->belongsTo('App\Models\ClassQuiz', 'meeting_quiz_id');
     }
 
-    public function ClassQuizChoice()
+    public function user()
     {
-      return $this->hasMany('App\Models\ClassQuizChoice', 'id');
+      return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     public function classQuizCollectionAnswer()

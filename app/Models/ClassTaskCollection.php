@@ -20,13 +20,14 @@ class ClassTaskCollection extends Model
         'meeting_task_id',
         'user_id',
         'file',
+        'is_scored',
         'score',
         'is_deleted'
     ];
 
     public function meetingTask()
     {
-      return $this->belongsTo('App\Models\MeetingTask', 'meeting_task_id');
+      return $this->belongsTo('App\Models\ClassTask', 'meeting_task_id');
     }
 
     public function user()

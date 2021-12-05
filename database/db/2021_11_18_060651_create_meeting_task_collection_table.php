@@ -21,7 +21,8 @@ class CreateMeetingTaskCollectionTable extends Migration
         $table->uuid('user_id');
         $table->foreign('user_id')->references('id')->on('users');
         $table->string('file');
-        $table->double('score');
+        $table->boolean('is_scored');
+        $table->double('score')->nullable();
         $table->boolean('is_deleted');
         $table->timestamps();
       });

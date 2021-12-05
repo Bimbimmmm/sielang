@@ -78,7 +78,7 @@ class TeacherMeetingClassExamController extends Controller
 
       if($request->file != null){
         $original_name = $request->file->getClientOriginalName();
-        $file = 'file_lampiran_ujian' . time() . '_' . $original_name;
+        $file = 'file_lampiran_ujian_' . time() . '_' . $original_name;
         $request->file->move(public_path('storage/exam'), $file);
       }else{
         $file = null;
