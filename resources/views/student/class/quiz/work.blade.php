@@ -20,9 +20,12 @@
             @endforeach
           </div>
           <div class="text-center">
-            <button onclick="window.location='{{ url ('/student/class/quiz/work', array( $id, $idc )) }}'" class="shadow bg-yellow-600 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            <form action="{{ route('studentclassquizfinish', array("$id", "$idc", "$idcol"))}}" method="POST">
+            @csrf
+            <button class="shadow bg-yellow-600 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
               Selesai
             </button>
+          </form>
           </div>
         </div>
       </div>
@@ -37,16 +40,16 @@
               {!! $ques->meetingQuizQuestion->question !!}
             </p>
           </br>
+          <form action="{{ route('studentclassquizanswer', array("$id", "$idc", "$idcol", "$ques->id"))}}" method="POST">
+          @csrf
             @foreach($choices as $choice)
-            <input type="radio" id="answer" name="answer" value="{{$choice->choice}}">
+            <input type="radio" id="answer" name="answer" value="{{$choice->id}}">
             <label for="answer">{{$choice->choice}}</label><br><br>
             @endforeach
-            <button onclick="window.location='{{ url ('/student/class/quiz/work', array( $id, $idc )) }}'" class="shadow bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            <button class="shadow bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
               Simpan dan Lanjutkan
             </button>
-            <button onclick="window.location='{{ url ('/student/class/quiz/work', array( $id, $idc )) }}'" class="shadow bg-red-600 hover:bg-red-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-              Lewati
-            </button>
+          </form>
           </div>
         </div>
       </div>

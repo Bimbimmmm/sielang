@@ -132,9 +132,33 @@ class StudentClassQuizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function answer(Request $request, $id, $idc, $idcol, $idqs)
     {
-        //
+        if($request->answer == NULL){
+          Alert::error('Gagal', 'Jawaban Tidak Boleh Kosong');
+          return redirect()->back();
+        }else{
+          $choice = ClassQuizChoice::where('id', $request->answer)->first();
+          $data = ClassQuizCollectionAnswer::findOrFail($idqs);
+          if($data->is_multiple_choice == TRUE){
+            $data->update([
+                'answer'    => $choice->choice,
+                'is_true'   => $choice->is_answer
+            ]);
+          }else{
+            $data->update([
+                'answer'    => $choice->choice
+            ]);
+          }
+          $get=ClassQuizCollectionAnswer::where('answer', NULL)->first();
+          if($get != NULL){
+            Alert::success('Berhasil', 'Pertanyaan Berhasil Dijawab!');
+            return redirect()->route('studentclassquizwork', array($id, $idc, $idcol, $get->id));
+          }else{
+            Alert::success('Berhasil', 'Semua Pertanyaan Sudah Dijawab, Silahkan Klik Tombol Selesai!');
+            return redirect()->back();
+          }
+        }
     }
 
     /**
@@ -143,8 +167,23 @@ class StudentClassQuizController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+     public function finish(Request $request, $id, $idc, $idcol)
+     {
+        $score=0;
+        $data = ClassQuizCollection::findOrFail($idcol);
+        $gets=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $data->id)->get();
+        $count=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $data->id)->count();
+        foreach ($gets as $get) {
+          if($get->is_true == TRUE){
+            $score=$score+1;
+          }
+        }
+        $mcscore=$score/$count*100;
+        $data->update([
+            'multiple_choice_score'   => $mcscore,
+            'is_finished'             => TRUE
+        ]);
+        Alert::success('Berhasil', 'Kuis Berhasil Dikerjakan, Silahkan Menunggu Penilaian Akhir!');
+        return redirect()->route('studentclassquizshow', array($id, $idc));
+     }
 }

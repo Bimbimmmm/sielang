@@ -113,8 +113,10 @@ Route::get('/student/class/task/show/{id}/{idc}', [StudentClassTaskController::c
 Route::post('/student/class/task/store/{id}', [StudentClassTaskController::class, 'store'])->middleware('can:isStudent')->name('studentclasstaskstore');
 //Student Class Quiz Routes
 Route::get('/student/class/quiz/show/{id}/{idc}', [StudentClassQuizController::class, 'show'])->middleware('can:isStudent')->name('studentclassquizshow');
-Route::post('/student/class/quiz/startwork/{id}/{idc}', [StudentClassQuizController::class, 'startwork'])->middleware('can:isStudent')->name('studentclasstaskstartwork');
+Route::post('/student/class/quiz/startwork/{id}/{idc}', [StudentClassQuizController::class, 'startwork'])->middleware('can:isStudent')->name('studentclassquizstartwork');
 Route::get('/student/class/quiz/work/{id}/{idc}/{idcol}/{idqs}', [StudentClassQuizController::class, 'work'])->middleware('can:isStudent')->name('studentclassquizwork');
+Route::post('/student/class/quiz/answer/{id}/{idc}/{idcol}/{idqs}', [StudentClassQuizController::class, 'answer'])->middleware('can:isStudent')->name('studentclassquizanswer');
+Route::post('/student/class/quiz/finish/{id}/{idc}/{idcol}', [StudentClassQuizController::class, 'finish'])->middleware('can:isStudent')->name('studentclassquizfinish');
 
 //OPERATOR ROUTES
 Route::get('/operator', [OperatorController::class, 'index'])->middleware('can:isOperator')->name('operator');

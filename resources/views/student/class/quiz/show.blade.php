@@ -58,7 +58,7 @@
                 </td>
               </tr>
               <tr class="text-gray-700 text-center">
-                <form action="{{ route('studentclasstaskstartwork', array($id, $idc))}}" method="POST">
+                <form action="{{ route('studentclassquizstartwork', array($id, $idc))}}" method="POST">
                   @csrf
                 <td class="px-4 py-3 text-ms border font-semibold" colspan="2">
                   <button type="submit" class="shadow bg-yellow-600 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
@@ -84,11 +84,15 @@
                 <td class="px-4 py-3 text-ms border">{{$collection->created_at}}</td>
               </tr>
               <tr class="text-gray-700 text-center">
-                <td class="px-4 py-3 text-ms border font-semibold">Skor</td>
+                <td class="px-4 py-3 text-ms border font-semibold">Skor Pilihan Ganda</td>
+                <td class="px-4 py-3 text-ms border">{{$collection->multiple_choice_score}}</td>
+              </tr>
+              <tr class="text-gray-700 text-center">
+                <td class="px-4 py-3 text-ms border font-semibold">Skor Akhir</td>
                 @if($collection->is_scored == TRUE)
                 <td class="px-4 py-3 text-ms border">{{$collection->score}}</td>
                 @else
-                <td class="px-4 py-3 text-ms border">Kuis Belum Dinilai</td>
+                <td class="px-4 py-3 text-ms border">Kuis Belum Dinilai Oleh Guru Pengampuh</td>
                 @endif
               </tr>
             </tbody>
