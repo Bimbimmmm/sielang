@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClassExamQuestion extends Model
+class ClassExamCollection extends Model
 {
     use HasFactory;
-    protected $table = 'meeting_exam_question';
+    protected $table = 'meeting_exam_collection';
 
     protected $casts = [
       'id' => 'string',
@@ -17,26 +17,29 @@ class ClassExamQuestion extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'name',
-        'meeting_exam_id',
-        'question',
-        'question_file',
-        'is_multiple_choice',
+        'meeting_exam',
+        'user_id',
+        'multiple_choice_score',
+        'essay_score',
+        'total_score',
+        'is_finished',
+        'is_scored',
         'is_deleted'
     ];
 
     public function meetingExam()
     {
-      return $this->belongsTo('App\Models\MeetingExam', 'meeting_exam_id');
+      return $this->belongsTo('App\Models\ClassExam', 'meeting_exam_id');
     }
 
-    public function ClassExamChoice()
+    public function user()
     {
-      return $this->hasMany('App\Models\ClassExamChoice', 'id');
+      return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     public function classExamCollectionAnswer()
     {
       return $this->hasMany('App\Models\ClassExamCollectionAnswer', 'id');
     }
+
 }

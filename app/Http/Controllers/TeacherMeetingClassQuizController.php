@@ -89,9 +89,9 @@ class TeacherMeetingClassQuizController extends Controller
     $data = new ClassQuiz;
     $data->name = $request->name;
     $data->teaching_hour_id = $id;
-    $data->working_time = $request->working_time;
     $data->start_date = $start_date;
     $data->expired_date = $expired_date;
+    $data->working_time = $request->working_time;
     $data->file = $file;
     $data->is_locked = FALSE;
     $data->is_active = FALSE;

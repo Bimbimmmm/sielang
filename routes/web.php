@@ -117,7 +117,12 @@ Route::post('/student/class/quiz/startwork/{id}/{idc}', [StudentClassQuizControl
 Route::get('/student/class/quiz/work/{id}/{idc}/{idcol}/{idqs}', [StudentClassQuizController::class, 'work'])->middleware('can:isStudent')->name('studentclassquizwork');
 Route::post('/student/class/quiz/answer/{id}/{idc}/{idcol}/{idqs}', [StudentClassQuizController::class, 'answer'])->middleware('can:isStudent')->name('studentclassquizanswer');
 Route::post('/student/class/quiz/finish/{id}/{idc}/{idcol}', [StudentClassQuizController::class, 'finish'])->middleware('can:isStudent')->name('studentclassquizfinish');
-
+//Student Class Exam Routes
+Route::get('/student/class/exam/show/{id}/{idc}', [StudentClassExamController::class, 'show'])->middleware('can:isStudent')->name('studentclassexamshow');
+Route::post('/student/class/exam/startwork/{id}/{idc}', [StudentClassExamController::class, 'startwork'])->middleware('can:isStudent')->name('studentclassexamstartwork');
+Route::get('/student/class/exam/work/{id}/{idc}/{idcol}/{idqs}', [StudentClassExamController::class, 'work'])->middleware('can:isStudent')->name('studentclassexamwork');
+Route::post('/student/class/exam/answer/{id}/{idc}/{idcol}/{idqs}', [StudentClassExamController::class, 'answer'])->middleware('can:isStudent')->name('studentclassexamanswer');
+Route::post('/student/class/exam/finish/{id}/{idc}/{idcol}', [StudentClassExamController::class, 'finish'])->middleware('can:isStudent')->name('studentclassexamfinish');
 //OPERATOR ROUTES
 Route::get('/operator', [OperatorController::class, 'index'])->middleware('can:isOperator')->name('operator');
 //Operator User Routes

@@ -89,6 +89,7 @@ class TeacherMeetingClassExamController extends Controller
       $data->teaching_hour_id = $id;
       $data->start_date = $start_date;
       $data->expired_date = $expired_date;
+      $data->working_time = $request->working_time;
       $data->file = $file;
       $data->is_locked = FALSE;
       $data->is_active = FALSE;

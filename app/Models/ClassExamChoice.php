@@ -27,4 +27,9 @@ class ClassExamChoice extends Model
     {
       return $this->belongsTo('App\Models\MeetingExamQuestion', 'meeting_exam_question_id');
     }
+
+    public function classExamCollection()
+    {
+      return $this->hasMany('App\Models\ClassExamCollection', 'id');
+    }
 }

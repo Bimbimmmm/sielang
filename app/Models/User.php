@@ -81,4 +81,9 @@ class User extends Authenticatable
      {
        return $this->hasMany('App\Models\ClassQuizCollection', 'id');
      }
+
+     public function classExamCollection()
+     {
+       return $this->hasMany('App\Models\ClassExamCollection', 'id');
+     }
 }

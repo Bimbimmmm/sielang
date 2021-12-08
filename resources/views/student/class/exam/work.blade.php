@@ -10,7 +10,7 @@
           <label for="name" class="font-semibold text-center text-gray-700 block pb-6">Nomor Soal</label>
           <div class="grid grid-cols-4 gap-4 mb-6">
             @foreach($questions as $question)
-            <a href="/student/class/quiz/work/{{$id}}/{{$idc}}/{{$idcol}}/{{$question->id}}">
+            <a href="/student/class/exam/work/{{$id}}/{{$idc}}/{{$idcol}}/{{$question->id}}">
               @if($question->answer == null)
               <div class="border-2 bg-red-600 text-center text-white">{{$loop->iteration}}</div>
               @else
@@ -20,7 +20,7 @@
             @endforeach
           </div>
           <div class="text-center">
-            <form action="{{ route('studentclassquizfinish', array("$id", "$idc", "$idcol"))}}" method="POST">
+            <form action="{{ route('studentclassexamfinish', array("$id", "$idc", "$idcol"))}}" method="POST">
             @csrf
             <button class="shadow bg-yellow-600 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
               Selesai
@@ -37,10 +37,10 @@
             <div id="countdown">
             <label for="name" class="font-semibold text-center text-gray-700 block">Pertanyaan</label>
             <p class="mb-2">
-              {!! $ques->meetingQuizQuestion->question !!}
+              {!! $ques->meetingExamQuestion->question !!}
             </p>
           </br>
-          <form action="{{ route('studentclassquizanswer', array("$id", "$idc", "$idcol", "$ques->id"))}}" method="POST">
+          <form action="{{ route('studentclassexamanswer', array("$id", "$idc", "$idcol", "$ques->id"))}}" method="POST">
           @csrf
             @foreach($choices as $choice)
             <input type="radio" id="answer" name="answer" value="{{$choice->id}}">

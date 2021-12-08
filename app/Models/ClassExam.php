@@ -20,6 +20,7 @@ class ClassExam extends Model
         'name',
         'teaching_hour_id',
         'file',
+        'work_time',
         'is_locked',
         'is_active',
         'is_deleted'
