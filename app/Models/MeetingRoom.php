@@ -19,7 +19,12 @@ class MeetingRoom extends Model
     protected $fillable = [
         'name',
         'teaching_hour_id',
-        'year',
+        'start_date',
+        'expired_date',
+        'meeting_media',
+        'link',
+        'subject_material_link',
+        'file',
         'is_active',
         'is_deleted'
     ];
@@ -34,8 +39,8 @@ class MeetingRoom extends Model
       return $this->belongsTo('App\Models\TeachingHour', 'teaching_hour_id');
     }
 
-    public function meetingClass()
+    public function meetingRoomAttendance()
     {
-      return $this->hasMany('App\Models\MeetingClass', 'id');
+      return $this->hasMany('App\Models\MeetingRoomAttendance', 'id');
     }
 }

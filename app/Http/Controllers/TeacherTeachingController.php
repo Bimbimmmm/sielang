@@ -8,6 +8,7 @@ use App\Models\TeachingHour;
 use App\Models\ClassTask;
 use App\Models\ClassQuiz;
 use App\Models\ClassExam;
+use App\Models\MeetingRoom;
 use Validator;
 use Alert;
 
@@ -56,11 +57,12 @@ class TeacherTeachingController extends Controller
     {
         $check=TeachingHour::where('id', $id)->count();
         $data=TeachingHour::where('id', $id)->first();
+        $meetings=MeetingRoom::where('teaching_hour_id' , $id)->get();
         $tasks=ClassTask::where('teaching_hour_id' , $id)->get();
         $quizs=ClassQuiz::where('teaching_hour_id' , $id)->get();
         $exams=ClassExam::where('teaching_hour_id' , $id)->get();
         if($check > 0){
-          return view('teacher/teaching/show', compact('data', 'tasks', 'quizs', 'exams', 'id'));
+          return view('teacher/teaching/show', compact('data', 'tasks', 'quizs', 'exams', 'id', 'meetings'));
         }else{
           Alert::error('Gagal', 'Data Tidak Ditemukan!');
           return redirect()->route('teacherteachingindex');

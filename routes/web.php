@@ -12,6 +12,7 @@ use App\Http\Controllers\OperatorClassController;
 use App\Http\Controllers\OperatorSubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherTeachingController;
+use App\Http\Controllers\TeacherMeetingRoomController;
 use App\Http\Controllers\TeacherMeetingClassTaskController;
 use App\Http\Controllers\TeacherMeetingClassQuizController;
 use App\Http\Controllers\TeacherMeetingClassExamController;
@@ -68,6 +69,11 @@ Route::get('/teacher', [TeacherController::class, 'index'])->middleware('can:isT
 Route::get('/teacher/teaching', [TeacherTeachingController::class, 'index'])->middleware('can:isTeacher')->name('teacherteachingindex');
 Route::post('/teacher/teaching/store', [TeacherTeachingController::class, 'store'])->middleware('can:isTeacher')->name('teacherteachingstore');
 Route::get('/teacher/teaching/show/{id}', [TeacherTeachingController::class, 'show'])->middleware('can:isTeacher')->name('teacherteachingshow');
+//Teacher Meeting Room Routes
+Route::get('/teacher/class/meetingroom/create/{id}', [TeacherMeetingRoomController::class, 'create'])->middleware('can:isTeacher')->name('teachermrcreate');
+Route::post('/teacher/class/meetingroom/store/{id}', [TeacherMeetingRoomController::class, 'store'])->middleware('can:isTeacher')->name('teachermrstore');
+Route::get('/teacher/class/meetingroom/show/{id}/{ids}', [TeacherMeetingRoomController::class, 'show'])->middleware('can:isTeacher')->name('teachermrshow');
+
 //Teacher Class Task Routes
 Route::get('/teacher/class/task/create/{id}', [TeacherMeetingClassTaskController::class, 'create'])->middleware('can:isTeacher')->name('teachertaskcreate');
 Route::post('/teacher/class/task/store/{id}', [TeacherMeetingClassTaskController::class, 'store'])->middleware('can:isTeacher')->name('teachertaskstore');

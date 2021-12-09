@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MeetingClass extends Model
+class MeetingRoomAttendance extends Model
 {
     use HasFactory;
-    protected $table = 'meeting_class';
+    protected $table = 'meeting_room_attendance';
 
     protected $casts = [
       'id' => 'string',
@@ -19,18 +19,17 @@ class MeetingClass extends Model
     protected $fillable = [
         'name',
         'meeting_room_id',
-        'link',
-        'is_active',
         'is_deleted'
-    ];
-
-    protected $dates = [
-      'start_date',
-      'expired_date'
     ];
 
     public function meetingRoom()
     {
       return $this->belongsTo('App\Models\MeetingRoom', 'meeting_room_id');
     }
+
+    public function meetingRoomAttendanceDetail()
+    {
+      return $this->hasMany('App\Models\MeetingRoomAttendanceDetail', 'id');
+    }
+
 }
