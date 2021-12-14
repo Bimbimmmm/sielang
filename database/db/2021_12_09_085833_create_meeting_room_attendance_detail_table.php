@@ -20,6 +20,7 @@ class CreateMeetingRoomAttendanceDetailTable extends Migration
         $table->foreign('meeting_room_attendance_id')->references('id')->on('meeting_room_attendance');
         $table->uuid('user_id');
         $table->foreign('user_id')->references('id')->on('users');
+        $table->boolean('is_attend')->nullable();
         $table->boolean('is_deleted');
         $table->timestamps();
       });

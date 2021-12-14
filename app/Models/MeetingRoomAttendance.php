@@ -19,6 +19,7 @@ class MeetingRoomAttendance extends Model
     protected $fillable = [
         'name',
         'meeting_room_id',
+        'is_finish',
         'is_deleted'
     ];
 

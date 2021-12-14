@@ -19,6 +19,7 @@ class MeetingRoomAttendanceDetail extends Model
     protected $fillable = [
         'meeting_room_attendance_id',
         'user_id',
+        'is_attend',
         'is_deleted'
     ];
 

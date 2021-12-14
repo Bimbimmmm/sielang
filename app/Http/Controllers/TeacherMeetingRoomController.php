@@ -93,6 +93,7 @@ class TeacherMeetingRoomController extends Controller
         $data2 = new MeetingRoomAttendance;
         $data2->name = $name;
         $data2->meeting_room_id = $get->id;
+        $data2->is_finish = FALSE;
         $data2->is_deleted = FALSE;
         $save2 = $data2->save();
 
@@ -104,6 +105,7 @@ class TeacherMeetingRoomController extends Controller
           $data3 = new MeetingRoomAttendanceDetail;
           $data3->meeting_room_attendance_id = $get2->id;
           $data3->user_id = $enroll->user_id;
+          $data3->is_attend = FALSE;
           $data3->is_deleted = FALSE;
           $save3 = $data3->save();
         }
@@ -118,9 +120,18 @@ class TeacherMeetingRoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $idc)
     {
-        return view('teacher/teaching/meetingroom/show', compact('id'));
+        $data=MeetingRoom::where('id', $id)->first();
+        $attendances=MeetingRoomAttendance::where('meeting_room_id', $id)->get();
+        return view('teacher/teaching/meetingroom/show', compact('id', 'idc', 'data', 'attendances'));
+    }
+
+    public function attendance($id, $idm, $idc)
+    {
+      $data=MeetingRoomAttendance::where('id', $id)->first();
+      $attendances=MeetingRoomAttendanceDetail::where('meeting_room_attendance_id', $id)->get();
+      return view('teacher/teaching/meetingroom/attendance', compact('id', 'idm', 'idc', 'data', 'attendances'));
     }
 
     /**
@@ -129,9 +140,32 @@ class TeacherMeetingRoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function attend($id)
     {
-        //
+      $data = MeetingRoomAttendanceDetail::findOrFail($id);
+      $data->update([
+            'is_attend'   => TRUE
+        ]);
+      return redirect()->back();
+    }
+
+    public function absent($id)
+    {
+      $data = MeetingRoomAttendanceDetail::findOrFail($id);
+      $data->update([
+            'is_attend'   => FALSE
+        ]);
+      return redirect()->back();
+    }
+
+    public function lock($id, $idm, $idc)
+    {
+      $data = MeetingRoomAttendance::findOrFail($id);
+      $data->update([
+            'is_finish'   => TRUE
+        ]);
+      Alert::success('Berhasil', 'Absensi Telah Dikunci');
+      return redirect()->route('teachermrshow', array($idm, $idc));
     }
 
     /**

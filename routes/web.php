@@ -72,7 +72,11 @@ Route::get('/teacher/teaching/show/{id}', [TeacherTeachingController::class, 'sh
 //Teacher Meeting Room Routes
 Route::get('/teacher/class/meetingroom/create/{id}', [TeacherMeetingRoomController::class, 'create'])->middleware('can:isTeacher')->name('teachermrcreate');
 Route::post('/teacher/class/meetingroom/store/{id}', [TeacherMeetingRoomController::class, 'store'])->middleware('can:isTeacher')->name('teachermrstore');
-Route::get('/teacher/class/meetingroom/show/{id}/{ids}', [TeacherMeetingRoomController::class, 'show'])->middleware('can:isTeacher')->name('teachermrshow');
+Route::get('/teacher/class/meetingroom/show/{id}/{idc}', [TeacherMeetingRoomController::class, 'show'])->middleware('can:isTeacher')->name('teachermrshow');
+Route::get('/teacher/class/meetingroom/attendance/{id}/{idc}/{ida}', [TeacherMeetingRoomController::class, 'attendance'])->middleware('can:isTeacher')->name('teachermrattshow');
+Route::post('/teacher/class/meetingroom/attendance/attend/{id}', [TeacherMeetingRoomController::class, 'attend'])->middleware('can:isTeacher')->name('teachermrattendstore');
+Route::post('/teacher/class/meetingroom/attendance/absent/{id}', [TeacherMeetingRoomController::class, 'absent'])->middleware('can:isTeacher')->name('teachermrabsentstore');
+Route::post('/teacher/class/meetingroom/attendance/lock/{id}/{idm}/{idc}', [TeacherMeetingRoomController::class, 'lock'])->middleware('can:isTeacher')->name('teachermrattlockstore');
 
 //Teacher Class Task Routes
 Route::get('/teacher/class/task/create/{id}', [TeacherMeetingClassTaskController::class, 'create'])->middleware('can:isTeacher')->name('teachertaskcreate');
