@@ -49,15 +49,27 @@
             </tr>
           </thead>
           <tbody class="bg-white">
+            @foreach($meetings as $meeting)
             <tr class="text-gray-700 text-center">
-              <td class="px-4 py-3 text-ms border font-semibold"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
-              <td class="px-4 py-3 text-ms border"></td>
+              <td class="px-4 py-3 text-ms border font-semibold">{{$loop->iteration}}</td>
+              <td class="px-4 py-3 text-ms border">{{$meeting->name}}</td>
+              <td class="px-4 py-3 text-ms border">{{$meeting->start_date}}</td>
+              <td class="px-4 py-3 text-ms border">{{$meeting->expired_date}}</td>
+              <td class="px-4 py-3 text-ms border">{{$meeting->meeting_media}}</td>
+              <td class="px-4 py-3 text-ms border">
+                @if($meeting->is_active == TRUE)
+                <span class="inline-block rounded-full text-white bg-green-500 px-2 py-1 text-xs font-bold mr-3">Aktif</span>
+                @else
+                <span class="inline-block rounded-full text-white bg-gray-500 px-2 py-1 text-xs font-bold mr-3">Tidak Aktif</span>
+                @endif
+              </td>
+              <td class="px-4 py-3 text-ms border">
+                <a href="/student/class/meetingroom/show/{{$meeting->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
+                  <i class="material-icons-outlined">visibility</i>
+                </a>
+              </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

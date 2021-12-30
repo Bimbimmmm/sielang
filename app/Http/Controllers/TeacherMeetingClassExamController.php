@@ -8,6 +8,8 @@ use App\Models\TeachingHour;
 use App\Models\ClassExam;
 use App\Models\ClassExamQuestion;
 use App\Models\ClassExamChoice;
+use App\Models\ClassExamCollection;
+use App\Models\ClassExamCollectionAnswer;
 use Validator;
 use Alert;
 
@@ -115,7 +117,8 @@ class TeacherMeetingClassExamController extends Controller
     {
       $data=ClassExam::where('id', $id)->first();
       $questions=ClassExamQuestion::where(['meeting_exam_id' => $id, 'is_deleted' => FALSE])->get();
-      return view('teacher/teaching/exam/show', compact('data', 'id', 'idt', 'questions'));
+      $collections=ClassExamCollection::where(['meeting_exam_id' => $id, 'is_finished' => TRUE, 'is_deleted' => FALSE])->get();
+      return view('teacher/teaching/exam/show', compact('data', 'id', 'idt', 'questions', 'collections'));
     }
 
     public function createquestion($id, $idt)
@@ -313,10 +316,66 @@ class TeacherMeetingClassExamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+     public function score(Request $request, $id, $idq, $idt)
+     {
+         $rules = [
+             'essay_score' => 'required'
+         ];
+
+         $messages = [
+             'essay_score.required'  => 'Nilai Wajib Diisi'
+         ];
+
+         $validator = Validator::make($request->all(), $rules, $messages);
+
+         if($validator->fails()){
+             return redirect()->back()->withErrors($validator)->withInput($request->all);
+         }
+
+         $mcp=$request->percentage;
+         $ep=100-$request->percentage;
+
+         $data = ClassExamCollection::findOrFail($id);
+         $multiple_choice_percentage_score=$data->multiple_choice_score*$mcp/100;
+         $essay_percentage_score=$request->essay_score*$ep/100;
+         $total_score=$multiple_choice_percentage_score+$essay_percentage_score;
+         $data->update([
+               'essay_score'   => $request->essay_score,
+               'total_score'   => $total_score,
+               'is_scored'     => TRUE
+         ]);
+         $check=ClassExamCollection::where(['id' => $id, 'is_scored' => TRUE])->count();
+         if($check > 0){
+           Alert::success('Berhasil', 'Kuis Telah Dinilai');
+           return redirect()->route('teacherexamshow', array($idq, $idt));
+         }else{
+           Alert::error('Gagal', 'Kuis Gagal Dinilai');
+           return redirect()->back();
+         }
+     }
+
+     public function showcol($id, $idq, $idt)
+     {
+         $data=ClassExamCollection::where('id', $id)->first();
+         $essais=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $data->id, 'is_multiple_choice' => FALSE])->get();
+         return view('teacher/teaching/exam/showcol', compact('data', 'id', 'idq', 'idt', 'essais'));
+     }
+
+     public function inactive($id, $idt)
+     {
+       $data = ClassExam::findOrFail($id);
+       $data->update([
+             'is_active'   => FALSE
+       ]);
+       $check=ClassExam::where(['id' => $id, 'is_active' => FALSE])->count();
+       if($check > 0){
+         Alert::success('Berhasil', 'Kuis Telah Dinonaktifkan');
+         return redirect()->back();
+       }else{
+         Alert::error('Gagal', 'Kuis Tidak Dapat Dinonaktifkan');
+         return redirect()->back();
+       }
+     }
 
     /**
      * Update the specified resource in storage.

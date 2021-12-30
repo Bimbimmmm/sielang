@@ -95,12 +95,37 @@
                 </div>
                 <p class="text-sm text-blueGray-400 mt-4">
                   <span class="text-emerald-500 mr-2">0</span>
-                  <span class="whitespace-nowrap">Total Kelas Keseluruhan</span></p>
+                  <span class="whitespace-nowrap">Total Kelas Saya</span></p>
                 </div>
               </div>
             </a>
 
+            <a href="/student/scores" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 mb-4 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-3 xl:mb-0 shadow-lg">
+                <div class="flex-auto p-4">
+                  <div class="flex flex-wrap">
+                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Nilai Saya</h5>
+                      <span class="font-semibold text-xl text-blueGray-700">0</span>
+                    </div>
+                    <div class="relative w-auto pl-4 flex-initial">
+                      <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-green-500">
+                        <i>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                          </svg>
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-sm text-blueGray-400 mt-4">
+                    <span class="text-emerald-500 mr-2">0</span>
+                    <span class="whitespace-nowrap">Total Nilai Keluar</span></p>
+                  </div>
+                </div>
+              </a>
+
+            </div>
           </div>
         </div>
-      </div>
-      @endsection
+        @endsection

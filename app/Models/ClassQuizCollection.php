@@ -17,7 +17,7 @@ class ClassQuizCollection extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'meeting_quiz',
+        'meeting_quiz_id',
         'user_id',
         'multiple_choice_score',
         'essay_score',

@@ -27,27 +27,6 @@ class TeacherTeachingController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -69,37 +48,19 @@ class TeacherTeachingController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function inactive($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+      $data = TeachingHour::findOrFail($id);
+      $data->update([
+            'is_active'   => FALSE
+      ]);
+      $check=TeachingHour::where(['id' => $id, 'is_active' => FALSE])->count();
+      if($check > 0){
+        Alert::success('Berhasil', 'Kuis Telah Dinonaktifkan');
+        return redirect()->route('teacherteachingindex');
+      }else{
+        Alert::error('Gagal', 'Kuis Tidak Dapat Dinonaktifkan');
+        return redirect()->back();
+      }
     }
 }

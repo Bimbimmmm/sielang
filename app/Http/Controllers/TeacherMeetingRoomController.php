@@ -175,9 +175,20 @@ class TeacherMeetingRoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function inactive($id, $idc)
     {
-        //
+      $data = MeetingRoom::findOrFail($id);
+      $data->update([
+            'is_active'   => FALSE
+      ]);
+      $check=MeetingRoom::where(['id' => $id, 'is_active' => FALSE])->count();
+      if($check > 0){
+        Alert::success('Berhasil', 'Ruang Pertemuan Telah Dinonaktifkan');
+        return redirect()->back();
+      }else{
+        Alert::error('Gagal', 'Ruang Pertemuan Tidak Dapat Dinonaktifkan');
+        return redirect()->back();
+      }
     }
 
     /**

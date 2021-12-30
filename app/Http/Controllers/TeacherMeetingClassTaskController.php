@@ -110,7 +110,7 @@ class TeacherMeetingClassTaskController extends Controller
     {
       $data=ClassTask::where('id', $id)->first();
       $collections=ClassTaskCollection::where(['meeting_task_id' => $id, 'is_deleted' => FALSE])->get();
-      return view('teacher/teaching/task/show', compact('data', 'collections', 'idt'));
+      return view('teacher/teaching/task/show', compact('data', 'collections', 'id', 'idt'));
     }
 
     /**
@@ -119,9 +119,10 @@ class TeacherMeetingClassTaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function showcol($id, $idts, $idt)
     {
-        //
+        $data=ClassTaskCollection::where('id', $id)->first();
+        return view('teacher/teaching/task/showcol', compact('data', 'id', 'idts', 'idt'));
     }
 
     /**
@@ -131,9 +132,35 @@ class TeacherMeetingClassTaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function score(Request $request, $id, $idts, $idt)
     {
-        //
+        $rules = [
+            'score' => 'required'
+        ];
+
+        $messages = [
+            'score.required'  => 'Nilai Wajib Diisi'
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+
+        $data = ClassTaskCollection::findOrFail($id);
+        $data->update([
+              'score'     => $request->score,
+              'is_scored' => TRUE
+        ]);
+        $check=ClassTaskCollection::where(['id' => $id, 'is_scored' => TRUE])->count();
+        if($check > 0){
+          Alert::success('Berhasil', 'Tugas Telah Dinilai');
+          return redirect()->route('teachertaskshow', array($idts, $idt));
+        }else{
+          Alert::error('Gagal', 'Tugas Gagal Dinilai');
+          return redirect()->back();
+        }
     }
 
     /**
@@ -144,6 +171,33 @@ class TeacherMeetingClassTaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ClassTaskCollection::findOrFail($id);
+        $data->update([
+              'is_deleted' => TRUE
+        ]);
+        $check=ClassTaskCollection::where(['id' => $id, 'is_deleted' => TRUE])->count();
+        if($check > 0){
+          Alert::success('Berhasil', 'Tugas Telah Dihapus');
+          return redirect()->back();
+        }else{
+          Alert::error('Gagal', 'Tugas Gagal Dihapus');
+          return redirect()->back();
+        }
+    }
+
+    public function inactive($id, $idt)
+    {
+      $data = ClassTask::findOrFail($id);
+      $data->update([
+            'is_active'   => FALSE
+      ]);
+      $check=ClassTask::where(['id' => $id, 'is_active' => FALSE])->count();
+      if($check > 0){
+        Alert::success('Berhasil', 'Tugas Telah Dinonaktifkan');
+        return redirect()->back();
+      }else{
+        Alert::error('Gagal', 'Tugas Tidak Dapat Dinonaktifkan');
+        return redirect()->back();
+      }
     }
 }
