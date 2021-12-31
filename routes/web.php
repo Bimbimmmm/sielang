@@ -16,6 +16,7 @@ use App\Http\Controllers\TeacherMeetingRoomController;
 use App\Http\Controllers\TeacherMeetingClassTaskController;
 use App\Http\Controllers\TeacherMeetingClassQuizController;
 use App\Http\Controllers\TeacherMeetingClassExamController;
+use App\Http\Controllers\TeacherLessonPlanController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentClassListController;
 use App\Http\Controllers\StudentClassController;
@@ -115,6 +116,12 @@ Route::get('/teacher/class/exam/question/delete/{id}', [TeacherMeetingClassExamC
 Route::post('/teacher/class/exam/inactive/{id}/{idt}', [TeacherMeetingClassExamController::class, 'inactive'])->middleware('can:isTeacher')->name('teacherexaminactive');
 Route::get('/teacher/class/exam/collection/show/{id}/{idq}/{idt}', [TeacherMeetingClassExamController::class, 'showcol'])->middleware('can:isTeacher')->name('teacherexamshowcol');
 Route::post('/teacher/class/exam/collection/score/{id}/{idq}/{idt}', [TeacherMeetingClassExamController::class, 'score'])->middleware('can:isTeacher')->name('teacherexamcolscore');
+
+//Teacher Lesson Plan Routes
+Route::get('/teacher/lessonplan', [TeacherLessonPlanController::class, 'index'])->middleware('can:isTeacher')->name('teacherlessonplanindex');
+Route::get('/teacher/lessonplan/create', [TeacherLessonPlanController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplancreate');
+Route::post('/teacher/class/exam/store', [TeacherLessonPlanController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanstore');
+Route::get('/teacher/lessonplan/show/{id}', [TeacherLessonPlanController::class, 'show'])->middleware('can:isTeacher')->name('teacherlessonplanshow');
 
 //PRINCIPAL ROUTES
 Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');

@@ -21,6 +21,7 @@ class CreateLessonPlanMigrationTable extends Migration
           $table->uuid('teaching_hour_id');
           $table->foreign('teaching_hour_id')->references('id')->on('teaching_hour');
           $table->string('type');
+          $table->boolean('is_active');
           $table->boolean('is_deleted');
           $table->timestamps();
         });

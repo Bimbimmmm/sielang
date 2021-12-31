@@ -1,6 +1,6 @@
 @extends('layouts.teacher')
 @section('content')
-<div class="min-h-screen bg-blue-200 py-2">
+<div class="min-h-screen bg-blue-100 py-2">
   <a href="/teacher">
     <button class="block text-green-500 rounded-sm font-bold py-4 px-6 mr-2 flex items-center hover:bg-green-500 hover:text-white">
       <svg class="h-5 w-5 mr-2 fill-current" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">

@@ -49,7 +49,7 @@
           </div>
         </a>
 
-        <a href="/teacher/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+        <a href="/teacher/lessonplan" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
           <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-4 xl:mb-0 shadow-lg">
             <div class="flex-auto p-4">
               <div class="flex flex-wrap">
@@ -69,7 +69,7 @@
               </div>
               <p class="text-sm text-blueGray-400 mt-4">
                 <span class="text-emerald-500 mr-2">0</span>
-                <span class="whitespace-nowrap">Total SKP Diproses</span></p>
+                <span class="whitespace-nowrap">Total RPP</span></p>
               </div>
             </div>
           </a>
