@@ -48,4 +48,9 @@ class LessonPlan extends Model
     {
       return $this->hasMany('App\Models\LessonPlanObjective', 'id');
     }
+
+    public function lessonPlanMedia()
+    {
+      return $this->hasMany('App\Models\LessonPlanMedia', 'id');
+    }
 }

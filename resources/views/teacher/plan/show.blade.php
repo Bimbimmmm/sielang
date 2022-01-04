@@ -87,8 +87,59 @@
             <td class="px-4 py-3 text-ms border font-semibold">{{$loop->iteration}}</td>
             <td class="px-4 py-3 text-ms border">{{$objective->objective}}</td>
             <td class="px-4 py-3 text-ms border">
-              @if($meeting->is_active == FALSE)
-              <a href="{{ url ('/teacher/lessonplan/objective/delete', array("$objective->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
+              @if($objective->is_active == FALSE)
+              <a href="{{ url ('/teacher/lessonplan/objective/destroy', array("$objective->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
+                <i class="material-icons-round">delete_outline</i>
+              </a>
+              @endif
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+    <div class="w-full overflow-x-auto mt-10">
+      @if($data->is_active == FALSE)
+      <div class="w-56">
+        <div class="my-2 flex sm:flex-row flex-col">
+          <div class="block relative">
+            <a class="text-white" href="/teacher/lessonplan/media/create/{{$data->id}}">
+              <div class="flex items-center p-4 bg-green-500 rounded-lg shadow-xs cursor-pointer hover:bg-green-400 hover:text-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                <div>
+                  <p class=" text-xs font-bold ml-2 ">
+                    TAMBAH MEDIA
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      @endif
+      <table class="w-full">
+        <thead>
+          <tr class="text-md text-center font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th class="px-4 py-3" colspan="8">Media Pembelajaran</th>
+          </tr>
+          <tr class="text-md text-center font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+            <th class="px-4 py-3">No</th>
+            <th class="px-4 py-3">Media</th>
+            <th class="px-4 py-3">Tipe</th>
+            <th class="px-4 py-3">Aksi</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          @foreach($medias as $media)
+          <tr class="text-gray-700 text-center">
+            <td class="px-4 py-3 text-ms border font-semibold">{{$loop->iteration}}</td>
+            <td class="px-4 py-3 text-ms border">{{$media->media}}</td>
+            <td class="px-4 py-3 text-ms border">{{$media->type}}</td>
+            <td class="px-4 py-3 text-ms border">
+              @if($media->is_active == FALSE)
+              <a href="{{ url ('/teacher/lessonplan/media/destroy', array("$media->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
                 <i class="material-icons-round">delete_outline</i>
               </a>
               @endif
@@ -138,8 +189,8 @@
             <td class="px-4 py-3 text-ms border">{{$activity->activity}}</td>
             <td class="px-4 py-3 text-ms border">{{$activity->type}}</td>
             <td class="px-4 py-3 text-ms border">
-              @if($meeting->is_active == FALSE)
-              <a href="{{ url ('/teacher/lessonplan/activity/delete', array("$activity->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
+              @if($activity->is_active == FALSE)
+              <a href="{{ url ('/teacher/lessonplan/activity/destroy', array("$activity->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
                 <i class="material-icons-round">delete_outline</i>
               </a>
               @endif
@@ -187,8 +238,8 @@
             <td class="px-4 py-3 text-ms border font-semibold">{{$loop->iteration}}</td>
             <td class="px-4 py-3 text-ms border">{{$assesment->assesment}}</td>
             <td class="px-4 py-3 text-ms border">
-              @if($meeting->is_active == FALSE)
-              <a href="{{ url ('/teacher/lessonplan/assesment/delete', array("$assesment->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
+              @if($assesment->is_active == FALSE)
+              <a href="{{ url ('/teacher/lessonplan/assesment/destroy', array("$assesment->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
                 <i class="material-icons-round">delete_outline</i>
               </a>
               @endif

@@ -7,6 +7,7 @@ use App\Models\LessonPlan;
 use App\Models\LessonPlanActivity;
 use App\Models\LessonPlanAssesment;
 use App\Models\LessonPlanObjective;
+use App\Models\LessonPlanMedia;
 use App\Models\TeachingHour;
 use Validator;
 use Alert;
@@ -95,42 +96,10 @@ class TeacherLessonPlanController extends Controller
     {
       $data=LessonPlan::where('id', $id)->first();
       $objectives=LessonPlanObjective::where(['lesson_plan_id' => $data->id, 'is_deleted' => FALSE])->get();
+      $medias=LessonPlanMedia::where(['lesson_plan_id' => $data->id, 'is_deleted' => FALSE])->get();
       $activities=LessonPlanActivity::where(['lesson_plan_id' => $data->id, 'is_deleted' => FALSE])->get();
       $assesments=LessonPlanAssesment::where(['lesson_plan_id' => $data->id, 'is_deleted' => FALSE])->get();
-      return view('teacher/plan/show', compact('data', 'objectives', 'activities', 'assesments'));
+      return view('teacher/plan/show', compact('data', 'objectives', 'medias', 'activities', 'assesments'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

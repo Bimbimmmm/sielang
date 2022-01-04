@@ -17,6 +17,10 @@ use App\Http\Controllers\TeacherMeetingClassTaskController;
 use App\Http\Controllers\TeacherMeetingClassQuizController;
 use App\Http\Controllers\TeacherMeetingClassExamController;
 use App\Http\Controllers\TeacherLessonPlanController;
+use App\Http\Controllers\TeacherLessonPlanObjectiveController;
+use App\Http\Controllers\TeacherLessonPlanMediaController;
+use App\Http\Controllers\TeacherLessonPlanActivityController;
+use App\Http\Controllers\TeacherLessonPlanAssesmentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentClassListController;
 use App\Http\Controllers\StudentClassController;
@@ -120,8 +124,24 @@ Route::post('/teacher/class/exam/collection/score/{id}/{idq}/{idt}', [TeacherMee
 //Teacher Lesson Plan Routes
 Route::get('/teacher/lessonplan', [TeacherLessonPlanController::class, 'index'])->middleware('can:isTeacher')->name('teacherlessonplanindex');
 Route::get('/teacher/lessonplan/create', [TeacherLessonPlanController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplancreate');
-Route::post('/teacher/class/exam/store', [TeacherLessonPlanController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanstore');
+Route::post('/teacher/lessonplan/store', [TeacherLessonPlanController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanstore');
 Route::get('/teacher/lessonplan/show/{id}', [TeacherLessonPlanController::class, 'show'])->middleware('can:isTeacher')->name('teacherlessonplanshow');
+//Teacher Lesson Plan Objective Routes
+Route::get('/teacher/lessonplan/objective/create/{id}', [TeacherLessonPlanObjectiveController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplanobjcreate');
+Route::post('/teacher/lessonplan/objective/store/{id}', [TeacherLessonPlanObjectiveController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanobjstore');
+Route::get('/teacher/lessonplan/objective/destroy/{id}', [TeacherLessonPlanObjectiveController::class, 'destroy'])->middleware('can:isTeacher')->name('teacherlessonplanobjdestroy');
+//Teacher Lesson Plan Media Routes
+Route::get('/teacher/lessonplan/media/create/{id}', [TeacherLessonPlanMediaController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplanmdcreate');
+Route::post('/teacher/lessonplan/media/store/{id}', [TeacherLessonPlanMediaController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanmdstore');
+Route::get('/teacher/lessonplan/media/destroy/{id}', [TeacherLessonPlanMediaController::class, 'destroy'])->middleware('can:isTeacher')->name('teacherlessonplanmddestroy');
+//Teacher Lesson Plan Activity Routes
+Route::get('/teacher/lessonplan/activity/create/{id}', [TeacherLessonPlanActivityController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplanactcreate');
+Route::post('/teacher/lessonplan/activity/store/{id}', [TeacherLessonPlanActivityController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanactstore');
+Route::get('/teacher/lessonplan/activity/destroy/{id}', [TeacherLessonPlanActivityController::class, 'destroy'])->middleware('can:isTeacher')->name('teacherlessonplanactdestroy');
+//Teacher Lesson Plan Assesment Routes
+Route::get('/teacher/lessonplan/assesment/create/{id}', [TeacherLessonPlanAssesmentController::class, 'create'])->middleware('can:isTeacher')->name('teacherlessonplanasscreate');
+Route::post('/teacher/lessonplan/assesment/store/{id}', [TeacherLessonPlanAssesmentController::class, 'store'])->middleware('can:isTeacher')->name('teacherlessonplanassstore');
+Route::get('/teacher/lessonplan/assesment/destroy/{id}', [TeacherLessonPlanAssesmentController::class, 'destroy'])->middleware('can:isTeacher')->name('teacherlessonplanassdestroy');
 
 //PRINCIPAL ROUTES
 Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');
