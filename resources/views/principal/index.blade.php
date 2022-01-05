@@ -74,19 +74,21 @@
             </div>
           </a>
 
-          <a href="/principal/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+          <a href="/principal/lessonplan" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
             <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-4 xl:mb-0 shadow-lg">
               <div class="flex-auto p-4">
                 <div class="flex flex-wrap">
                   <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                    <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Kelas</h5>
-                    <span class="font-semibold text-xl text-blueGray-700">2,999</span>
+                    <h5 class="text-blueGray-400 uppercase font-bold text-xl">RPP Bawahan</h5>
+                    <span class="font-semibold text-xl text-blueGray-700">0</span>
                   </div>
                   <div class="relative w-auto pl-4 flex-initial">
-                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-pink-500">
+                    <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-yellow-500">
                       <i>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                         </svg>
                       </i>
                     </div>
@@ -94,24 +96,24 @@
                 </div>
                 <p class="text-sm text-blueGray-400 mt-4">
                   <span class="text-emerald-500 mr-2">0</span>
-                  <span class="whitespace-nowrap">Total SKP Diproses</span></p>
+                  <span class="whitespace-nowrap">Total RPP Bawahan</span></p>
                 </div>
               </div>
             </a>
 
-            <a href="/principal/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
-              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+            <a href="/principal/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-4 xl:mb-0 shadow-lg">
                 <div class="flex-auto p-4">
                   <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Siswa</h5>
-                      <span class="font-semibold text-xl text-blueGray-700">901</span>
+                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Kelas</h5>
+                      <span class="font-semibold text-xl text-blueGray-700">2,999</span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
-                      <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-lightBlue-500">
+                      <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-pink-500">
                         <i>
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
                         </i>
                       </div>
@@ -119,12 +121,37 @@
                   </div>
                   <p class="text-sm text-blueGray-400 mt-4">
                     <span class="text-emerald-500 mr-2">0</span>
-                    <span class="whitespace-nowrap">Total PAK Diproses</span></p>
+                    <span class="whitespace-nowrap">Total SKP Diproses</span></p>
                   </div>
                 </div>
               </a>
 
+              <a href="/principal/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+                <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
+                  <div class="flex-auto p-4">
+                    <div class="flex flex-wrap">
+                      <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
+                        <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Siswa</h5>
+                        <span class="font-semibold text-xl text-blueGray-700">901</span>
+                      </div>
+                      <div class="relative w-auto pl-4 flex-initial">
+                        <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-lightBlue-500">
+                          <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                            </svg>
+                          </i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="text-sm text-blueGray-400 mt-4">
+                      <span class="text-emerald-500 mr-2">0</span>
+                      <span class="whitespace-nowrap">Total PAK Diproses</span></p>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
             </div>
           </div>
-        </div>
-        @endsection
+          @endsection

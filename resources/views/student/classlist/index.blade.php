@@ -20,7 +20,7 @@
             <th class="px-4 py-3">Nama Kelas</th>
             <th class="px-4 py-3">Tahun dan Periode Semester</th>
             <th class="px-4 py-3">Jumlah Jam</th>
-            <th class="px-4 py-3">Guru Pengampuh</th>
+            <th class="px-4 py-3">Guru Pengampu</th>
             <th class="px-4 py-3">Aksi</th>
           </tr>
         </thead>

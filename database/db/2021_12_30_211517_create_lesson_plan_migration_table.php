@@ -13,19 +13,23 @@ class CreateLessonPlanMigrationTable extends Migration
      */
     public function up()
     {
-        DB::statement('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
-        Schema::create('lesson_plan', function (Blueprint $table) {
-          $table->uuid('id')->primary();
-          $table->uuid('user_id');
-          $table->foreign('user_id')->references('id')->on('users');
-          $table->uuid('teaching_hour_id');
-          $table->foreign('teaching_hour_id')->references('id')->on('teaching_hour');
-          $table->string('type');
-          $table->boolean('is_active');
-          $table->boolean('is_deleted');
-          $table->timestamps();
-        });
-        DB::statement('ALTER TABLE lesson_plan ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
+      DB::statement('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";');
+      Schema::create('lesson_plan', function (Blueprint $table) {
+        $table->uuid('id')->primary();
+        $table->uuid('user_id');
+        $table->foreign('user_id')->references('id')->on('users');
+        $table->uuid('teaching_hour_id');
+        $table->foreign('teaching_hour_id')->references('id')->on('teaching_hour');
+        $table->integer('school_id');
+        $table->foreign('school_id')->references('id')->on('reference_schools');
+        $table->string('type');
+        $table->string('meeting');
+        $table->boolean('is_locked');
+        $table->boolean('is_accepted');
+        $table->boolean('is_deleted');
+        $table->timestamps();
+      });
+      DB::statement('ALTER TABLE lesson_plan ALTER COLUMN id SET DEFAULT uuid_generate_v4();');
     }
 
     /**

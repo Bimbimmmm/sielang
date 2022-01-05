@@ -41,8 +41,7 @@
 
         <div class="w-full overflow-x-auto py-5">
           <h1 class="mb-6 text-center text-2xl text-gray-600 font-bold">Soal Ujian</h1>
-          @if($data->is_active == TRUE)
-          @else
+          @if($data->is_locked == FALSE)
           <div class="block relative w-48 mb-5">
             <a class="text-white" href="/teacher/class/exam/create/question/{{$data->id}}/{{$idt}}">
               <div class="mx-4 sm:mx-8 w-auto flex items-center p-4 bg-green-500 rounded-lg shadow-xs cursor-pointer hover:bg-green-400 hover:text-gray-100">
@@ -114,9 +113,11 @@
                     <a href="{{ url ('/teacher/class/exam/question/show', array("$question->id" , "$id", "$idt")) }}" class="text-green-600 hover:text-green-400 mr-2">
                       <i class="material-icons-outlined">visibility</i>
                     </a>
+                    @if($data->is_locked == FALSE)
                     <a href="{{ url ('/teacher/class/exam/question/delete', array("$question->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
                       <i class="material-icons-round">delete_outline</i>
                     </a>
+                    @endif
                   </p>
                 </td>
               </tr>
@@ -146,7 +147,7 @@
           </div>
         </div>
         @endif
-        @if($data->is_active == TRUE)
+        @if($data->is_locked == TRUE)
         <div class="w-full overflow-x-auto py-5">
           <h1 class="mb-6 text-center text-2xl text-gray-600 font-bold">Hasil Ujian Siswa</h1>
           <table class="w-full">

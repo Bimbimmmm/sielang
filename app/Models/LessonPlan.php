@@ -20,7 +20,8 @@ class LessonPlan extends Model
         'user_id',
         'teaching_hour_id',
         'type',
-        'is_active',
+        'is_locked',
+        'is_accepted',
         'is_deleted'
     ];
 

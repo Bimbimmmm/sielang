@@ -22,7 +22,7 @@ class TeacherTeachingController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $datas=TeachingHour::where(['user_id' => $user_id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
+        $datas=TeachingHour::where(['user_id' => $user_id, 'is_deleted' => FALSE])->get();
         return view('teacher/teaching/index', compact('datas'));
     }
 
@@ -56,10 +56,10 @@ class TeacherTeachingController extends Controller
       ]);
       $check=TeachingHour::where(['id' => $id, 'is_active' => FALSE])->count();
       if($check > 0){
-        Alert::success('Berhasil', 'Kuis Telah Dinonaktifkan');
+        Alert::success('Berhasil', 'Kelas Telah Dinonaktifkan');
         return redirect()->route('teacherteachingindex');
       }else{
-        Alert::error('Gagal', 'Kuis Tidak Dapat Dinonaktifkan');
+        Alert::error('Gagal', 'Kelas Tidak Dapat Dinonaktifkan');
         return redirect()->back();
       }
     }

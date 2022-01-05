@@ -98,7 +98,7 @@
                 <a href="/teacher/class/meetingroom/show/{{$meeting->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined">visibility</i>
                 </a>
-                @if($meeting->is_active == TRUE)
+                @if($data->is_active == TRUE)
                 <a href="{{ url ('/teacher/class/meetingroom/delete', array("$meeting->id")) }}" class="text-red-600 hover:text-red-400 ml-2">
                   <i class="material-icons-round">delete_outline</i>
                 </a>
@@ -158,7 +158,7 @@
                 <a href="/teacher/class/task/show/{{$task->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined">visibility</i>
                 </a>
-                @if($meeting->is_active == TRUE)
+                @if($data->is_active == TRUE)
                 <a href="{{ url ('/teacher/class/task/delete', array("$task->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
                   <i class="material-icons-round">delete_outline</i>
                 </a>
@@ -222,9 +222,11 @@
                 <a href="/teacher/class/quiz/show/{{$quiz->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined">visibility</i>
                 </a>
+                @if($data->is_active == TRUE)
                 <a href="{{ url ('/teacher/class/quiz/delete', array("$quiz->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
                   <i class="material-icons-round">delete_outline</i>
                 </a>
+                @endif
               </td>
             </tr>
             @endforeach
@@ -284,9 +286,11 @@
                 <a href="/teacher/class/exam/show/{{$exam->id}}/{{$id}}" class="text-green-600 hover:text-green-400 mr-2">
                   <i class="material-icons-outlined">visibility</i>
                 </a>
+                @if($data->is_active == TRUE)
                 <a href="{{ url ('/teacher/class/exam/delete', array("$exam->id")) }}" class="text-red-600 hover:text-red-400    ml-2">
                   <i class="material-icons-round">delete_outline</i>
                 </a>
+                @endif
               </td>
             </tr>
             @endforeach

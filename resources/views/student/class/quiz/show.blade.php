@@ -92,7 +92,7 @@
                 @if($collection->is_scored == TRUE)
                 <td class="px-4 py-3 text-ms border">{{$collection->score}}</td>
                 @else
-                <td class="px-4 py-3 text-ms border">Kuis Belum Dinilai Oleh Guru Pengampuh</td>
+                <td class="px-4 py-3 text-ms border">Kuis Belum Dinilai Oleh Guru Pengampu</td>
                 @endif
               </tr>
             </tbody>

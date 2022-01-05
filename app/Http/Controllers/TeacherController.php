@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\LessonPlan;
+use App\Models\TeachingHour;
 
 class TeacherController extends Controller
 {
@@ -13,7 +15,12 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher/index');
+        $user_id = auth()->user()->id;
+        $my_rpp_count=LessonPlan::where(['user_id' => $user_id, 'is_deleted' => FALSE])->count();
+        $all_rpp_count=LessonPlan::all()->count();
+        $my_th_count=TeachingHour::where(['user_id' => $user_id, 'is_deleted' => FALSE])->count();
+        $all_th_count=TeachingHour::all()->count();
+        return view('teacher/index', compact('my_rpp_count', 'all_rpp_count', 'my_th_count', 'all_th_count'));
     }
 
     /**

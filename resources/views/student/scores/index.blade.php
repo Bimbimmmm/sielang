@@ -19,7 +19,7 @@
               <th class="px-4 py-3">Nama Semester</th>
               <th class="px-4 py-3">Nama Mata Pelajaran</th>
               <th class="px-4 py-3">Nama Tugas</th>
-              <th class="px-4 py-3">Nama Guru Pengampuh</th>
+              <th class="px-4 py-3">Nama Guru Pengampu</th>
               <th class="px-4 py-3">Nilai Tugas</th>
               <th class="px-4 py-3">Waktu Penilaian</th>
             </tr>
@@ -50,7 +50,7 @@
               <th class="px-4 py-3">Nama Semester</th>
               <th class="px-4 py-3">Nama Mata Pelajaran</th>
               <th class="px-4 py-3">Nama Kuis</th>
-              <th class="px-4 py-3">Nama Guru Pengampuh</th>
+              <th class="px-4 py-3">Nama Guru Pengampu</th>
               <th class="px-4 py-3">Nilai Kuis</th>
               <th class="px-4 py-3">Waktu Penilaian</th>
             </tr>
@@ -81,7 +81,7 @@
               <th class="px-4 py-3">Nama Semester</th>
               <th class="px-4 py-3">Nama Mata Pelajaran</th>
               <th class="px-4 py-3">Nama Ujian</th>
-              <th class="px-4 py-3">Nama Guru Pengampuh</th>
+              <th class="px-4 py-3">Nama Guru Pengampu</th>
               <th class="px-4 py-3">Nilai Ujian</th>
               <th class="px-4 py-3">Waktu Penilaian</th>
             </tr>

@@ -55,7 +55,7 @@
               <div class="flex flex-wrap">
                 <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
                   <h5 class="text-blueGray-400 uppercase font-bold text-xl">RPP Semester</h5>
-                  <span class="font-semibold text-xl text-blueGray-700">2,999</span>
+                  <span class="font-semibold text-xl text-blueGray-700">{{$my_rpp_count}}</span>
                 </div>
                 <div class="relative w-auto pl-4 flex-initial">
                   <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-pink-500">
@@ -68,7 +68,7 @@
                 </div>
               </div>
               <p class="text-sm text-blueGray-400 mt-4">
-                <span class="text-emerald-500 mr-2">0</span>
+                <span class="text-emerald-500 mr-2">{{$all_rpp_count}}</span>
                 <span class="whitespace-nowrap">Total RPP</span></p>
               </div>
             </div>
@@ -79,8 +79,8 @@
             <div class="flex-auto p-4">
               <div class="flex flex-wrap">
                 <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                  <h5 class="text-blueGray-400 uppercase font-bold text-xl">Kelas Yang Diampuh</h5>
-                  <span class="font-semibold text-xl text-blueGray-700">0</span>
+                  <h5 class="text-blueGray-400 uppercase font-bold text-xl">Kelas Yang Diampu</h5>
+                  <span class="font-semibold text-xl text-blueGray-700">{{$my_th_count}}</span>
                 </div>
                 <div class="relative w-auto pl-4 flex-initial">
                   <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-yellow-500">
@@ -93,18 +93,18 @@
                 </div>
               </div>
               <p class="text-sm text-blueGray-400 mt-4">
-                <span class="text-emerald-500 mr-2">0</span>
+                <span class="text-emerald-500 mr-2">{{$all_th_count}}</span>
                 <span class="whitespace-nowrap">Total Kelas Keseluruhan</span></p>
               </div>
             </div>
           </a>
 
-            <a href="/teacher/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+            <a href="/teacher/studentscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
               <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                 <div class="flex-auto p-4">
                   <div class="flex flex-wrap">
                     <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Siswa</h5>
+                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Nilai Siswa</h5>
                       <span class="font-semibold text-xl text-blueGray-700">901</span>
                     </div>
                     <div class="relative w-auto pl-4 flex-initial">
