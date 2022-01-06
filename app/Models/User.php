@@ -96,4 +96,9 @@ class User extends Authenticatable
      {
        return $this->hasMany('App\Models\LessonPlan', 'id');
      }
+
+     public function LessonResultDetail()
+     {
+       return $this->hasMany('App\Models\LessonResultDetail', 'id');
+     }
 }

@@ -94,7 +94,7 @@
               <td class="px-4 py-3 text-ms border">{{$exam->meetingExam->teachingHour->subject->name}}</td>
               <td class="px-4 py-3 text-ms border">{{$exam->meetingExam->name}}</td>
               <td class="px-4 py-3 text-ms border">{{$exam->meetingExam->teachingHour->user->teacherPersonalData->name}}</td>
-              <td class="px-4 py-3 text-sm border">{{$quiz->total_score}}</td>
+              <td class="px-4 py-3 text-sm border">{{$exam->total_score}}</td>
               <td class="px-4 py-3 text-sm border">{{$exam->updated_at}}</td>
             </tr>
             @endforeach

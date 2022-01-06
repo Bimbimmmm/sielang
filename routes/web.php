@@ -23,6 +23,7 @@ use App\Http\Controllers\TeacherLessonPlanMediaController;
 use App\Http\Controllers\TeacherLessonPlanActivityController;
 use App\Http\Controllers\TeacherLessonPlanAssesmentController;
 use App\Http\Controllers\TeacherStudentScoresController;
+use App\Http\Controllers\TeacherPersonalDataController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentClassListController;
 use App\Http\Controllers\StudentClassController;
@@ -150,7 +151,12 @@ Route::get('/teacher/lessonplan/assesment/destroy/{id}', [TeacherLessonPlanAsses
 //Teacher Student Scores Routes
 Route::get('/teacher/studentscore', [TeacherStudentScoresController::class, 'index'])->middleware('can:isTeacher')->name('teacherss');
 Route::get('/teacher/studentscore/show/{id}', [TeacherStudentScoresController::class, 'show'])->middleware('can:isTeacher')->name('teacherssshow');
+Route::get('/teacher/studentscore/print/{id}', [TeacherStudentScoresController::class, 'print'])->middleware('can:isTeacher')->name('teachersspdf');
+Route::get('/teacher/studentscore/generate/{id}', [TeacherStudentScoresController::class, 'generate'])->middleware('can:isTeacher')->name('teacherssgenerate');
+Route::get('/teacher/studentscore/show/student/{id}/{idss}', [TeacherStudentScoresController::class, 'showstudent'])->middleware('can:isTeacher')->name('teacherssshowstudent');
 
+//Teacher Student Scores Routes
+Route::get('/teacher/personaldata', [TeacherPersonalDataController::class, 'index'])->middleware('can:isTeacher')->name('teacherpd');
 
 //PRINCIPAL ROUTES
 Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');

@@ -38,7 +38,6 @@ class TeachingHour extends Model
       return $this->belongsTo('App\Models\Subject', 'subject_id');
     }
 
-
     public function classmodel()
     {
       return $this->belongsTo('App\Models\ClassModel', 'class_id');
@@ -67,6 +66,11 @@ class TeachingHour extends Model
     public function studentEnrolled()
     {
       return $this->hasMany('App\Models\StudentEnrolled', 'id');
+    }
+
+    public function lessonResult()
+    {
+      return $this->hasMany('App\Models\LessonResult', 'id');
     }
 
 
