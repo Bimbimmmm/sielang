@@ -20,7 +20,6 @@ class CreateMeetingRoomTable extends Migration
         $table->uuid('teaching_hour_id');
         $table->foreign('teaching_hour_id')->references('id')->on('teaching_hour');
         $table->timestamp('start_date');
-        $table->timestamp('expired_date');
         $table->string('meeting_media');
         $table->string('link')->nullable();
         $table->string('subject_material_link')->nullable();

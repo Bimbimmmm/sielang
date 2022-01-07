@@ -20,6 +20,7 @@ class TeachingHour extends Model
         'user_id',
         'subject_id',
         'class_id',
+        'school_id',
         'hour',
         'semester_period',
         'year',
@@ -41,6 +42,11 @@ class TeachingHour extends Model
     public function classmodel()
     {
       return $this->belongsTo('App\Models\ClassModel', 'class_id');
+    }
+
+    public function school()
+    {
+      return $this->belongsTo('App\Models\ReferenceSchools', 'school_id');
     }
 
     public function meetingRoom()

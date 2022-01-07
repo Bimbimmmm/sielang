@@ -20,7 +20,6 @@ class MeetingRoom extends Model
         'name',
         'teaching_hour_id',
         'start_date',
-        'expired_date',
         'meeting_media',
         'link',
         'subject_material_link',

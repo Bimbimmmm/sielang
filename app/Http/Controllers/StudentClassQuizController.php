@@ -88,7 +88,6 @@ class StudentClassQuizController extends Controller
         $working_second=$check->working_time*60;
         $time = strtotime($data->created_at) + $working_second;
         $work_time=date('M j, Y H:i:s', $time);
-
         $questions=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $idcol)->get();
         $ques=ClassQuizCollectionAnswer::where('id', $idqs)->first();
         $choices=ClassQuizChoice::where('meeting_quiz_question_id', $ques->meeting_quiz_question_id)->get();
@@ -120,7 +119,7 @@ class StudentClassQuizController extends Controller
                 'answer'    => $choice->choice
             ]);
           }
-          $get=ClassQuizCollectionAnswer::where('answer', NULL)->first();
+          $get=ClassQuizCollectionAnswer::where(['meeting_quiz_collection_id' => $idcol, 'answer' => NULL])->first();
           if($get != NULL){
             Alert::success('Berhasil', 'Pertanyaan Berhasil Dijawab!');
             return redirect()->route('studentclassquizwork', array($id, $idc, $idcol, $get->id));

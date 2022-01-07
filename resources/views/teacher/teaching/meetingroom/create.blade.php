@@ -42,14 +42,6 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Tanggal Kadaluarsa Pertemuan
-            </label>
-            <input id="expired_date" name="expired_date" class="datepicker input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" required>
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
               Media Pertemuan
             </label>
             <select name="meeting_media" id="meeting_media" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -119,15 +111,6 @@ file.addEventListener('change', function(){
 <script>
 $( function() {
   $( "#start_date" ).datepicker({
-    dateFormat: "dd-mm-yy",
-    changeMonth: true,
-    changeYear: true,
-  });
-});
-</script>
-<script>
-$( function() {
-  $( "#expired_date" ).datepicker({
     dateFormat: "dd-mm-yy",
     changeMonth: true,
     changeYear: true,

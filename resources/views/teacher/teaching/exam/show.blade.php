@@ -15,18 +15,18 @@
         <table class="w-full">
           <tbody class="bg-white">
             <tr class="text-gray-700 text-center">
-              <td class="px-4 py-3 text-ms border font-semibold">Nama Tugas</td>
+              <td class="px-4 py-3 text-ms border font-semibold">Nama Ujian</td>
               <td class="px-4 py-3 text-ms border">{{$data->name}}</td>
             </tr>
             <tr class="text-gray-700 text-center">
-              <td class="px-4 py-3 text-ms border font-semibold">Tanggal Mulai Tugas</td>
+              <td class="px-4 py-3 text-ms border font-semibold">Tanggal Mulai Ujian</td>
               <td class="px-4 py-3 text-ms border">{{$data->start_date->formatLocalized("%d-%m-%Y")}}</td></tr>
               <tr class="text-gray-700 text-center">
-                <td class="px-4 py-3 text-ms border font-semibold">Tanggal Selesai Tugas</td>
+                <td class="px-4 py-3 text-ms border font-semibold">Tanggal Selesai Ujian</td>
                 <td class="px-4 py-3 text-ms border">{{$data->expired_date->formatLocalized("%d-%m-%Y")}}</td></tr>
               </tr>
               <tr class="text-gray-700 text-center">
-                <td class="px-4 py-3 text-ms border font-semibold">File Instruksi Tugas</td>
+                <td class="px-4 py-3 text-ms border font-semibold">File Instruksi Ujian</td>
                 @if($data->file != NULL)
                 <td class="px-4 py-3 text-ms border">
                   <a href="{{ asset('storage/exam/' . $data->file) }}">{{$data->file}}</a>

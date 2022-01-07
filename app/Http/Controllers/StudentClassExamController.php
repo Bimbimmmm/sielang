@@ -120,7 +120,7 @@ class StudentClassExamController extends Controller
                 'answer'    => $choice->choice
             ]);
           }
-          $get=ClassExamCollectionAnswer::where('answer', NULL)->first();
+          $get=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $idcol, 'answer' => NULL])->first();
           if($get != NULL){
             Alert::success('Berhasil', 'Pertanyaan Berhasil Dijawab!');
             return redirect()->route('studentclassexamwork', array($id, $idc, $idcol, $get->id));

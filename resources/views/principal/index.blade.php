@@ -101,38 +101,13 @@
               </div>
             </a>
 
-            <a href="/principal/performance" class=" mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
-              <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-4 xl:mb-0 shadow-lg">
-                <div class="flex-auto p-4">
-                  <div class="flex flex-wrap">
-                    <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                      <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Kelas</h5>
-                      <span class="font-semibold text-xl text-blueGray-700">2,999</span>
-                    </div>
-                    <div class="relative w-auto pl-4 flex-initial">
-                      <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-pink-500">
-                        <i>
-                          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                        </i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="text-sm text-blueGray-400 mt-4">
-                    <span class="text-emerald-500 mr-2">0</span>
-                    <span class="whitespace-nowrap">Total SKP Diproses</span></p>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/principal/creditscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
+              <a href="/principal/studentscore" class="mt-4 w-full lg:w-6/12 xl:w-3/12 px-5 transition duration-500 transform hover:translate-y-3 cursor-pointer">
                 <div class="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">
                   <div class="flex-auto p-4">
                     <div class="flex flex-wrap">
                       <div class="relative w-full pr-4 max-w-full flex-grow flex-1">
-                        <h5 class="text-blueGray-400 uppercase font-bold text-xl">Data Siswa</h5>
-                        <span class="font-semibold text-xl text-blueGray-700">901</span>
+                        <h5 class="text-blueGray-400 uppercase font-bold text-xl">Nilai Siswa</h5>
+                        <span class="font-semibold text-xl text-blueGray-700">0</span>
                       </div>
                       <div class="relative w-auto pl-4 flex-initial">
                         <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full  bg-lightBlue-500">
@@ -146,7 +121,7 @@
                     </div>
                     <p class="text-sm text-blueGray-400 mt-4">
                       <span class="text-emerald-500 mr-2">0</span>
-                      <span class="whitespace-nowrap">Total PAK Diproses</span></p>
+                      <span class="whitespace-nowrap">Total Nilai Siswa</span></p>
                     </div>
                   </div>
                 </a>

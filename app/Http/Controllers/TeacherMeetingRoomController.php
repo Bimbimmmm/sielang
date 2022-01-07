@@ -45,7 +45,6 @@ class TeacherMeetingRoomController extends Controller
         $rules = [
             'name'           => 'required',
             'start_date'     => 'required',
-            'expired_date'   => 'required',
             'meeting_media'  => 'required',
             'file'           => 'required',
             'file.*'         => 'mimes:pdf|max:2048'
@@ -54,7 +53,6 @@ class TeacherMeetingRoomController extends Controller
         $messages = [
             'name.required'               => 'Nama Wajib Diisi',
             'start_date.required'         => 'Tanggal Mulai Kelas wajib diisi',
-            'expired_date.unique'         => 'Tanggal Kadaluarsa Kelas Wajib Diisi',
             'meeting_media.required'      => 'Media Pertemuan Wajib Diisi',
             'file.required'               => 'File Wajib Diupload',
             'file.mimes'                  => 'File Wajib Berekstensi .pdf dan Maksmial 2MB'
@@ -67,7 +65,6 @@ class TeacherMeetingRoomController extends Controller
         }
 
         $start_date = date("Y-m-d", strtotime($request->start_date));
-        $expired_date = date("Y-m-d", strtotime($request->expired_date));
 
         $original_name = $request->file->getClientOriginalName();
         $file = 'file_materi_pertemuan_' . time() . '_' . $original_name;
@@ -77,7 +74,6 @@ class TeacherMeetingRoomController extends Controller
         $data->name = $request->name;
         $data->teaching_hour_id = $id;
         $data->start_date = $start_date;
-        $data->expired_date = $expired_date;
         $data->meeting_media = $request->meeting_media;
         $data->link = $request->link;
         $data->subject_material_link = $request->subject_material_link;

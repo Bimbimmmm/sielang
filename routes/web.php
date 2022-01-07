@@ -4,9 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminAttendController;
+use App\Http\Controllers\AdminExamController;
+use App\Http\Controllers\AdminLessonPlanController;
+use App\Http\Controllers\AdminLessonResultController;
+use App\Http\Controllers\AdminQuizController;
+use App\Http\Controllers\AdminTaskController;
+use App\Http\Controllers\AdminTeachingHourController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\PrincipalTeachingController;
 use App\Http\Controllers\PrincipalLessonPlanController;
+use App\Http\Controllers\PrincipalSchoolDataController;
+use App\Http\Controllers\PrincipalStudentScoreController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorUserController;
 use App\Http\Controllers\OperatorClassController;
@@ -32,6 +41,7 @@ use App\Http\Controllers\StudentClassQuizController;
 use App\Http\Controllers\StudentClassExamController;
 use App\Http\Controllers\StudentClassMeetingRoomController;
 use App\Http\Controllers\StudentScoreController;
+use App\Http\Controllers\StudentPersonalDataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,6 +82,34 @@ Route::get('/administrator', [AdministratorController::class, 'index'])->middlew
 Route::get('/administrator/users', [AdminUserController::class, 'index'])->middleware('can:isAdmin')->name('adminuserindex');
 Route::get('/administrator/users/create', [AdminUserController::class, 'create'])->middleware('can:isAdmin')->name('adminusercreate');
 Route::post('/administrator/users/store', [AdminUserController::class, 'store'])->middleware('can:isAdmin')->name('adminuserstore');
+//Admin Teaching Hour Routes
+Route::get('/administrator/teachinghour', [AdminTeachingHourController::class, 'index'])->middleware('can:isAdmin')->name('adminthindex');
+Route::get('/administrator/teachinghour/destroy/{id}', [AdminTeachingHourController::class, 'destroy'])->middleware('can:isAdmin')->name('adminthdestroy');
+//Admin Lesson Result Routes
+Route::get('/administrator/lessonresult', [AdminLessonResultController::class, 'index'])->middleware('can:isAdmin')->name('adminlrindex');
+Route::get('/administrator/lessonresult/show/{id}', [AdminLessonResultController::class, 'show'])->middleware('can:isAdmin')->name('adminlrshow');
+Route::get('/administrator/lessonresult/destroy/{id}', [AdminLessonResultController::class, 'destroy'])->middleware('can:isAdmin')->name('adminlrdestroy');
+//Admin Attendance Routes
+Route::get('/administrator/attendance', [AdminAttendController::class, 'index'])->middleware('can:isAdmin')->name('adminattindex');
+Route::get('/administrator/attendance/show/{id}', [AdminAttendController::class, 'show'])->middleware('can:isAdmin')->name('adminattshow');
+Route::get('/administrator/attendance/destroy/{id}', [AdminAttendController::class, 'destroy'])->middleware('can:isAdmin')->name('adminattdestroy');
+//Admin Task Routes
+Route::get('/administrator/task', [AdminTaskController::class, 'index'])->middleware('can:isAdmin')->name('admintsindex');
+Route::get('/administrator/task/show/{id}', [AdminTaskController::class, 'show'])->middleware('can:isAdmin')->name('admintsshow');
+Route::get('/administrator/task/destroy/{id}', [AdminTaskController::class, 'destroy'])->middleware('can:isAdmin')->name('admintsdestroy');
+//Admin Quiz Routes
+Route::get('/administrator/quiz', [AdminQuizController::class, 'index'])->middleware('can:isAdmin')->name('adminqzindex');
+Route::get('/administrator/quiz/show/{id}', [AdminQuizController::class, 'show'])->middleware('can:isAdmin')->name('adminqzshow');
+Route::get('/administrator/quiz/destroy/{id}', [AdminQuizController::class, 'destroy'])->middleware('can:isAdmin')->name('adminqzdestroy');
+//Admin Exam Routes
+Route::get('/administrator/exam', [AdminExamController::class, 'index'])->middleware('can:isAdmin')->name('adminexindex');
+Route::get('/administrator/exam/show/{id}', [AdminExamController::class, 'show'])->middleware('can:isAdmin')->name('adminexshow');
+Route::get('/administrator/exam/destroy/{id}', [AdminExamController::class, 'destroy'])->middleware('can:isAdmin')->name('adminexdestroy');
+//Admin Lesson Plan Routes
+Route::get('/administrator/lessonplan', [AdminLessonPlanController::class, 'index'])->middleware('can:isAdmin')->name('adminlpindex');
+Route::get('/administrator/lessonplan/show/{id}', [AdminLessonPlanController::class, 'show'])->middleware('can:isAdmin')->name('adminlpshow');
+Route::get('/administrator/lessonplan/destroy/{id}', [AdminLessonPlanController::class, 'destroy'])->middleware('can:isAdmin')->name('adminlpdestroy');
+
 
 //TEACHER ROUTES
 Route::get('/teacher', [TeacherController::class, 'index'])->middleware('can:isTeacher')->name('teacher');
@@ -160,6 +198,8 @@ Route::get('/teacher/personaldata', [TeacherPersonalDataController::class, 'inde
 
 //PRINCIPAL ROUTES
 Route::get('/principal', [PrincipalController::class, 'index'])->middleware('can:isPrincipal')->name('principal');
+//Principal School Data Routes
+Route::get('/principal/schooldata', [PrincipalSchoolDataController::class, 'index'])->middleware('can:isPrincipal')->name('principalsdindex');
 //Principal Teaching Routes
 Route::get('/principal/teaching', [PrincipalTeachingController::class, 'index'])->middleware('can:isPrincipal')->name('principalteachingindex');
 Route::get('/principal/teaching/create', [PrincipalTeachingController::class, 'create'])->middleware('can:isPrincipal')->name('principalteachingcreate');
@@ -168,6 +208,12 @@ Route::post('/principal/teaching/store', [PrincipalTeachingController::class, 's
 Route::get('/principal/lessonplan', [PrincipalLessonPlanController::class, 'index'])->middleware('can:isPrincipal')->name('principallpindex');
 Route::get('/principal/lessonplan/show/{id}', [PrincipalLessonPlanController::class, 'show'])->middleware('can:isPrincipal')->name('principallpshow');
 Route::post('/principal/lessonplan/accept/{id}', [PrincipalLessonPlanController::class, 'accept'])->middleware('can:isPrincipal')->name('principallpaccept');
+//Principal Student Scores Routes
+Route::get('/principal/studentscore', [PrincipalStudentScoreController::class, 'index'])->middleware('can:isPrincipal')->name('principalss');
+Route::get('/principal/studentscore/show/{id}', [PrincipalStudentScoreController::class, 'show'])->middleware('can:isPrincipal')->name('principalssshow');
+Route::get('/principal/studentscore/print/{id}', [PrincipalStudentScoreController::class, 'print'])->middleware('can:isPrincipal')->name('principalsspdf');
+Route::get('/principal/studentscore/generate/{id}', [PrincipalStudentScoreController::class, 'generate'])->middleware('can:isPrincipal')->name('principalssgenerate');
+Route::get('/principal/studentscore/show/student/{id}/{idss}', [PrincipalStudentScoreController::class, 'showstudent'])->middleware('can:isPrincipal')->name('principalssshowstudent');
 
 
 //STUDENT ROUTES
@@ -197,6 +243,8 @@ Route::post('/student/class/exam/answer/{id}/{idc}/{idcol}/{idqs}', [StudentClas
 Route::post('/student/class/exam/finish/{id}/{idc}/{idcol}', [StudentClassExamController::class, 'finish'])->middleware('can:isStudent')->name('studentclassexamfinish');
 //Student Scores Routes
 Route::get('/student/scores', [StudentScoreController::class, 'index'])->middleware('can:isStudent')->name('studentscoreindex');
+//Student Personal Data Routes
+Route::get('/student/personaldata', [StudentPersonalDataController::class, 'index'])->middleware('can:isStudent')->name('studentpdindex');
 //OPERATOR ROUTES
 Route::get('/operator', [OperatorController::class, 'index'])->middleware('can:isOperator')->name('operator');
 //Operator User Routes

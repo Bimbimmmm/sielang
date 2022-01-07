@@ -73,7 +73,6 @@
               <th class="px-4 py-3">No</th>
               <th class="px-4 py-3">Nama Pertemuan</th>
               <th class="px-4 py-3">Tanggal Pertemuan</th>
-              <th class="px-4 py-3">Tanggal Akhir Pertemuan</th>
               <th class="px-4 py-3">Media Pertemuan</th>
               <th class="px-4 py-3">Status</th>
               <th class="px-4 py-3">Aksi</th>
@@ -85,7 +84,6 @@
               <td class="px-4 py-3 text-ms border font-semibold">{{$loop->iteration}}</td>
               <td class="px-4 py-3 text-ms border">{{$meeting->name}}</td>
               <td class="px-4 py-3 text-ms border">{{$meeting->start_date}}</td>
-              <td class="px-4 py-3 text-ms border">{{$meeting->expired_date}}</td>
               <td class="px-4 py-3 text-ms border">{{$meeting->meeting_media}}</td>
               <td class="px-4 py-3 text-ms border">
                 @if($meeting->is_active == TRUE)

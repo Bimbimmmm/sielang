@@ -22,10 +22,6 @@
               <td class="px-4 py-3 text-ms border font-semibold">Tanggal Mulai Pertemuan</td>
               <td class="px-4 py-3 text-ms border">{{$data->start_date->formatLocalized("%d-%m-%Y")}}</td>
               <tr class="text-gray-700 text-center">
-                <td class="px-4 py-3 text-ms border font-semibold">Tanggal Selesai Pertemuan</td>
-                <td class="px-4 py-3 text-ms border">{{$data->expired_date->formatLocalized("%d-%m-%Y")}}</td>
-              </tr>
-              <tr class="text-gray-700 text-center">
                 <td class="px-4 py-3 text-ms border font-semibold">Jenis Pertemuan</td>
                 <td class="px-4 py-3 text-ms border">
                   <span class="inline-block rounded-full text-white bg-indigo-500 px-2 py-1 text-xs font-bold mr-3">{{$data->meeting_media}}</span>
