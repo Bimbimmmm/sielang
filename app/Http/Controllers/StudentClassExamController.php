@@ -71,8 +71,9 @@ class StudentClassExamController extends Controller
            $getqs=ClassExamCollectionAnswer::where('meeting_exam_collection_id', $get->id)->first();
 
            if($save1){
+             $is_any = 1;
              Alert::success('Berhasil', 'Session Berhasil Dibuat, Silahkan Mengerjakan Ujian!');
-             return redirect()->route('studentclassexamwork', array($id, $idc, $get->id, $getqs->id));
+             return redirect()->route('studentclassexamwork', array($id, $idc, $get->id, $getqs->id, $is_any));
            } else {
              Alert::error('Gagal', 'Gagal Membuat Session');
              return redirect()->back();
@@ -80,20 +81,25 @@ class StudentClassExamController extends Controller
          }
       }
 
-    public function work($id, $idc, $idcol, $idqs)
+    public function work($id, $idc, $idcol, $idqs, $is_any)
     {
         $user_id = auth()->user()->id;
         $data=ClassExamCollection::where(['meeting_exam_id' => $id, 'user_id' => $user_id, 'is_deleted' => FALSE])->first();
-        $check=ClassExam::where('id', $id)->first();
-        $working_second=$check->working_time*60;
-        $time = strtotime($data->created_at) + $working_second;
-        $work_time=date('M j, Y H:i:s', $time);
-
-        $questions=ClassExamCollectionAnswer::where('meeting_exam_collection_id', $idcol)->get();
-        $ques=ClassExamCollectionAnswer::where('id', $idqs)->first();
-        $choices=ClassExamChoice::where('meeting_exam_question_id', $ques->meeting_exam_question_id)->get();
-        return view('student/class/exam/work', compact('id', 'idc', 'idcol', 'data', 'work_time', 'check', 'questions', 'ques', 'choices'));
-    }
+        $check_active=ClassExamCollection::where(['meeting_exam_id' => $id, 'user_id' => $user_id, 'is_finished' => TRUE])->count();
+        if($check_active > 0){
+          Alert::error('Gagal', 'Ujian Sudah Dikerjakan!');
+          return redirect()->route('studentclassexamshow', array($id, $idc));
+        }else{
+          $check=ClassExam::where('id', $id)->first();
+          $working_second=$check->working_time*60;
+          $time = strtotime($data->created_at) + $working_second;
+          $work_time=date('M j, Y H:i:s', $time);
+          $questions=ClassExamCollectionAnswer::where('meeting_exam_collection_id', $idcol)->get();
+          $ques=ClassExamCollectionAnswer::where('id', $idqs)->first();
+          $choices=ClassExamChoice::where('meeting_exam_question_id', $ques->meeting_exam_question_id)->get();
+          return view('student/class/exam/work', compact('id', 'idc', 'idcol', 'data', 'work_time', 'check', 'questions', 'ques', 'choices', 'is_any'));
+        }
+      }
 
     /**
      * Update the specified resource in storage.
@@ -122,11 +128,13 @@ class StudentClassExamController extends Controller
           }
           $get=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $idcol, 'answer' => NULL])->first();
           if($get != NULL){
+            $is_any=1;
             Alert::success('Berhasil', 'Pertanyaan Berhasil Dijawab!');
-            return redirect()->route('studentclassexamwork', array($id, $idc, $idcol, $get->id));
+            return redirect()->route('studentclassexamwork', array($id, $idc, $idcol, $get->id, $is_any));
           }else{
+            $is_any=0;
             Alert::success('Berhasil', 'Semua Pertanyaan Sudah Dijawab, Silahkan Klik Tombol Selesai!');
-            return redirect()->back();
+            return redirect()->route('studentclassexamwork', array($id, $idc, $idcol, $idqs, $is_any));
           }
         }
     }
@@ -154,6 +162,6 @@ class StudentClassExamController extends Controller
             'is_finished'             => TRUE
         ]);
         Alert::success('Berhasil', 'Ujian Berhasil Dikerjakan, Silahkan Menunggu Penilaian Akhir!');
-        return redirect()->route('studentclassexamshow', array($id, $idc));
+        return redirect()->route('studentclasshow', array($idc));
      }
 }

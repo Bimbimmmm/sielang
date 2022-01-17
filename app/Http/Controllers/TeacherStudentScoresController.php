@@ -49,6 +49,10 @@ class TeacherStudentScoresController extends Controller
   public function showstudent($id, $idss)
   {
     $attendance_score=0;
+    $mrcount=0;
+    $task_count=0;
+    $quiz_count=0;
+    $exam_count=0;
     $att_score=0;
     $task_score=0;
     $quiz_score=0;
@@ -63,7 +67,7 @@ class TeacherStudentScoresController extends Controller
       $mrs=MeetingRoomAttendance::where(['meeting_room_id' => $get_mr->id, 'is_deleted' => FALSE])->get();
       foreach ($mrs as $mr) {
         $mrds=MeetingRoomAttendanceDetail::where(['meeting_room_attendance_id' => $mr->id, 'user_id' => $student->user_id, 'is_deleted' => FALSE])->get();
-        $mrcount=$mrds->count();
+        $mrcount=$mrcount+1;
         foreach ($mrds as $mrd) {
           if($mrd->is_attend == TRUE){
             $att_score=$att_score+1;
@@ -75,34 +79,42 @@ class TeacherStudentScoresController extends Controller
     $get_tasks=ClassTask::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
     foreach ($get_tasks as $get_task) {
       $tasks=ClassTaskCollection::where(['meeting_task_id' => $get_task->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-      $task_count=$tasks->count();
       foreach ($tasks as $task) {
         $task_score=$task_score+$task->score;
+        $task_count=$task_count+1;
       }
     }
 
     $get_quizs=ClassQuiz::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
     foreach ($get_quizs as $get_quiz) {
       $quizs=ClassQuizCollection::where(['meeting_quiz_id' => $get_quiz->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-      $quiz_count=$quizs->count();
       foreach ($quizs as $quiz) {
         $quiz_score=$quiz_score+$quiz->total_score;
+        $quiz_count=$quiz_count+1;
       }
     }
 
     $get_exams=ClassExam::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
     foreach ($get_exams as $get_exam) {
       $exams=ClassExamCollection::where(['meeting_exam_id' => $get_exam->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-      $exam_count=$exams->count();
       foreach ($exams as $exam) {
         $exam_score=$exam_score+$exam->total_score;
+        $exam_count=$exam_count+1;
       }
     }
 
-    $attendance_score=$att_score/$mrcount*100;
-    $total_task_score=$task_score/$task_count;
-    $total_quiz_score=$quiz_score/$quiz_count;
-    $total_exam_score=$exam_score/$exam_count;
+    if($mrcount != 0){
+      $attendance_score=$att_score/$mrcount*100;
+    }
+    if($task_count != 0){
+      $total_task_score=$task_score/$task_count;
+    }
+    if($quiz_count != 0){
+      $total_quiz_score=$quiz_score/$quiz_count;
+    }
+    if($exam_count != 0){
+      $total_exam_score=$exam_score/$exam_count;
+    }
 
     return view('teacher/score/showstudent', compact(
       'student', 'tasks', 'quizs',
@@ -128,6 +140,10 @@ class TeacherStudentScoresController extends Controller
 
       $students=StudentEnrolled::where(['teaching_hour_id' => $id, 'is_active' => TRUE, 'is_deleted' => FALSE])->get();
       foreach ($students as $student) {
+        $mrcount=0;
+        $task_count=0;
+        $quiz_count=0;
+        $exam_count=0;
         $attendance_score=0;
         $att_score=0;
         $task_score=0;
@@ -142,7 +158,7 @@ class TeacherStudentScoresController extends Controller
           $mrs=MeetingRoomAttendance::where(['meeting_room_id' => $get_mr->id, 'is_deleted' => FALSE])->get();
           foreach ($mrs as $mr) {
             $mrds=MeetingRoomAttendanceDetail::where(['meeting_room_attendance_id' => $mr->id, 'user_id' => $student->user_id, 'is_deleted' => FALSE])->get();
-            $mrcount=$mrds->count();
+            $mrcount=$mrcount+1;
             foreach ($mrds as $mrd) {
               if($mrd->is_attend == TRUE){
                 $att_score=$att_score+1;
@@ -154,34 +170,42 @@ class TeacherStudentScoresController extends Controller
         $get_tasks=ClassTask::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
         foreach ($get_tasks as $get_task) {
           $tasks=ClassTaskCollection::where(['meeting_task_id' => $get_task->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-          $task_count=$tasks->count();
           foreach ($tasks as $task) {
             $task_score=$task_score+$task->score;
+            $task_count=$task_count+1;
           }
         }
 
         $get_quizs=ClassQuiz::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
         foreach ($get_quizs as $get_quiz) {
           $quizs=ClassQuizCollection::where(['meeting_quiz_id' => $get_quiz->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-          $quiz_count=$quizs->count();
           foreach ($quizs as $quiz) {
             $quiz_score=$quiz_score+$quiz->total_score;
+            $quiz_count=$quiz_count+1;
           }
         }
 
         $get_exams=ClassExam::where(['teaching_hour_id' => $student->teaching_hour_id, 'is_deleted' => FALSE])->get();
         foreach ($get_exams as $get_exam) {
           $exams=ClassExamCollection::where(['meeting_exam_id' => $get_exam->id, 'user_id' => $student->user_id, 'is_scored' => TRUE, 'is_deleted' => FALSE])->get();
-          $exam_count=$exams->count();
           foreach ($exams as $exam) {
             $exam_score=$exam_score+$exam->total_score;
+            $exam_count=$exam_count+1;
           }
         }
 
-        $attendance_score=$att_score/$mrcount*100;
-        $total_task_score=$task_score/$task_count;
-        $total_quiz_score=$quiz_score/$quiz_count;
-        $total_exam_score=$exam_score/$exam_count;
+        if($mrcount != 0){
+          $attendance_score=$att_score/$mrcount*100;
+        }
+        if($task_count != 0){
+          $total_task_score=$task_score/$task_count;
+        }
+        if($quiz_count != 0){
+          $total_quiz_score=$quiz_score/$quiz_count;
+        }
+        if($exam_count != 0){
+          $total_exam_score=$exam_score/$exam_count;
+        }
 
         $detail = new LessonResultDetail;
         $detail->lesson_result_id = $getlr->id;

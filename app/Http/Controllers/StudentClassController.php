@@ -56,10 +56,10 @@ class StudentClassController extends Controller
     public function show($id)
     {
       $data=StudentEnrolled::where('id', $id)->first();
-      $meetings=MeetingRoom::where(['teaching_hour_id' => $data->teaching_hour_id,'is_deleted' => FALSE])->get();
-      $tasks=ClassTask::where(['teaching_hour_id' => $data->teaching_hour_id,'is_deleted' => FALSE])->get();
-      $quizs=ClassQuiz::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_deleted' => FALSE])->get();
-      $exams=ClassExam::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_deleted' => FALSE])->get();
+      $meetings=MeetingRoom::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_deleted' => FALSE])->get();
+      $tasks=ClassTask::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_deleted' => FALSE])->get();
+      $quizs=ClassQuiz::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_locked' => TRUE, 'is_deleted' => FALSE])->get();
+      $exams=ClassExam::where(['teaching_hour_id' => $data->teaching_hour_id, 'is_locked' => TRUE, 'is_deleted' => FALSE])->get();
       return view('student/class/show', compact('data', 'meetings', 'tasks', 'quizs', 'exams', 'id'));
     }
 

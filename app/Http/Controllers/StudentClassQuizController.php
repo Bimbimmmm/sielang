@@ -71,8 +71,9 @@ class StudentClassQuizController extends Controller
            $getqs=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $get->id)->first();
 
            if($save1){
+             $is_any = 1;
              Alert::success('Berhasil', 'Session Berhasil Dibuat, Silahkan Mengerjakan Kuis!');
-             return redirect()->route('studentclassquizwork', array($id, $idc, $get->id, $getqs->id));
+             return redirect()->route('studentclassquizwork', array($id, $idc, $get->id, $getqs->id, $is_any));
            } else {
              Alert::error('Gagal', 'Gagal Membuat Session');
              return redirect()->back();
@@ -80,18 +81,24 @@ class StudentClassQuizController extends Controller
          }
       }
 
-    public function work($id, $idc, $idcol, $idqs)
+    public function work($id, $idc, $idcol, $idqs, $is_any)
     {
         $user_id = auth()->user()->id;
         $data=ClassQuizCollection::where(['meeting_quiz_id' => $id, 'user_id' => $user_id, 'is_deleted' => FALSE])->first();
-        $check=ClassQuiz::where('id', $id)->first();
-        $working_second=$check->working_time*60;
-        $time = strtotime($data->created_at) + $working_second;
-        $work_time=date('M j, Y H:i:s', $time);
-        $questions=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $idcol)->get();
-        $ques=ClassQuizCollectionAnswer::where('id', $idqs)->first();
-        $choices=ClassQuizChoice::where('meeting_quiz_question_id', $ques->meeting_quiz_question_id)->get();
-        return view('student/class/quiz/work', compact('id', 'idc', 'idcol', 'data', 'work_time', 'check', 'questions', 'ques', 'choices'));
+        $check_active=ClassQuizCollection::where(['meeting_quiz_id' => $id, 'user_id' => $user_id, 'is_finished' => TRUE])->count();
+        if($check_active > 0){
+          Alert::error('Gagal', 'Ujian Sudah Dikerjakan!');
+          return redirect()->route('studentclassexamshow', array($id, $idc));
+        }else{
+          $check=ClassQuiz::where('id', $id)->first();
+          $working_second=$check->working_time*60;
+          $time = strtotime($data->created_at) + $working_second;
+          $work_time=date('M j, Y H:i:s', $time);
+          $questions=ClassQuizCollectionAnswer::where('meeting_quiz_collection_id', $idcol)->get();
+          $ques=ClassQuizCollectionAnswer::where('id', $idqs)->first();
+          $choices=ClassQuizChoice::where('meeting_quiz_question_id', $ques->meeting_quiz_question_id)->get();
+          return view('student/class/quiz/work', compact('id', 'idc', 'idcol', 'data', 'work_time', 'check', 'questions', 'ques', 'choices', 'is_any'));
+        }
     }
 
     /**
@@ -121,11 +128,13 @@ class StudentClassQuizController extends Controller
           }
           $get=ClassQuizCollectionAnswer::where(['meeting_quiz_collection_id' => $idcol, 'answer' => NULL])->first();
           if($get != NULL){
+            $is_any=1;
             Alert::success('Berhasil', 'Pertanyaan Berhasil Dijawab!');
-            return redirect()->route('studentclassquizwork', array($id, $idc, $idcol, $get->id));
+            return redirect()->route('studentclassquizwork', array($id, $idc, $idcol, $get->id, $is_any));
           }else{
+            $is_any=0;
             Alert::success('Berhasil', 'Semua Pertanyaan Sudah Dijawab, Silahkan Klik Tombol Selesai!');
-            return redirect()->back();
+            return redirect()->route('studentclassquizwork', array($id, $idc, $idcol, $idqs, $is_any));
           }
         }
     }
@@ -153,6 +162,6 @@ class StudentClassQuizController extends Controller
             'is_finished'             => TRUE
         ]);
         Alert::success('Berhasil', 'Kuis Berhasil Dikerjakan, Silahkan Menunggu Penilaian Akhir!');
-        return redirect()->route('studentclassquizshow', array($id, $idc));
+        return redirect()->route('studentclasshow', array($idc));
      }
 }

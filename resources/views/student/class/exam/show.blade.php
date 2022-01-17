@@ -90,7 +90,7 @@
               <tr class="text-gray-700 text-center">
                 <td class="px-4 py-3 text-ms border font-semibold">Skor Akhir</td>
                 @if($collection->is_scored == TRUE)
-                <td class="px-4 py-3 text-ms border">{{$collection->score}}</td>
+                <td class="px-4 py-3 text-ms border">{{$collection->total_score}}</td>
                 @else
                 <td class="px-4 py-3 text-ms border">Ujian Belum Dinilai Oleh Guru Pengampu</td>
                 @endif

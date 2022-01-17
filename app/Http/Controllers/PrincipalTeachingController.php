@@ -75,26 +75,33 @@ class PrincipalTeachingController extends Controller
 
         $school_id = auth()->user()->school_id;
 
-        $data = new TeachingHour;
-        $data->user_id = $request->user_id;
-        $data->subject_id = $request->subject_id;
-        $data->class_id = $request->class_id;
-        $data->school_id = $school_id;
-        $data->hour = $request->hour;
-        $data->semester_period = $request->semester_period;
-        $data->year = $request->year;
-        $data->is_deleted = FALSE;
-        $data->is_active = TRUE;
-        $save = $data->save();
+        $check=TeachingHour::where(['user_id' => $request->user_id, 'subject_id' => $request->subject_id, 'class_id' => $request->class_id, 'semester_period' => $request->semester_period, 'year' => $request->year, 'is_deleted' => FALSE])->count();
 
-        if($save){
-            Alert::success('Berhasil', 'Mata Pelajaran Berhasil Dibuat');
-            return redirect()->route('principalteachingindex');
-        } else {
-            Alert::error('Gagal', 'Gagal Membuat Mata Pelajaran! Silahkan ulangi beberapa saat lagi');
-            return redirect()->route('principalteachingcreate');
+        if($check == 0){
+          $data = new TeachingHour;
+          $data->user_id = $request->user_id;
+          $data->subject_id = $request->subject_id;
+          $data->class_id = $request->class_id;
+          $data->school_id = $school_id;
+          $data->hour = $request->hour;
+          $data->semester_period = $request->semester_period;
+          $data->year = $request->year;
+          $data->is_deleted = FALSE;
+          $data->is_active = TRUE;
+          $save = $data->save();
+
+          if($save){
+              Alert::success('Berhasil', 'Mata Pelajaran Berhasil Dibuat');
+              return redirect()->route('principalteachingindex');
+          } else {
+              Alert::error('Gagal', 'Gagal Membuat Mata Pelajaran! Silahkan ulangi beberapa saat lagi');
+              return redirect()->back();
+          }
+        }else{
+          Alert::error('Gagal', 'Pemetaan Pada Guru, Mata Pelajaran, Periode Semester Yang Dimasukkan Sudah Ada!');
+          return redirect()->back();
         }
-    }
+      }
 
     /**
      * Display the specified resource.

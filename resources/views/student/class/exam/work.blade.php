@@ -30,6 +30,7 @@
         </div>
       </div>
     </div>
+    @if($is_any == "1")
     <div id="question" class="col-span-2">
       <div class="row-span-3">
         <div class="border-b-2 block md:flex">
@@ -55,6 +56,7 @@
       </div>
     </div>
   </div>
+  @endif
 </div>
 <script>
 // Set the date we're counting down to

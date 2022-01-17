@@ -29,7 +29,7 @@
             @if($data->is_scored == TRUE)
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Skor Ujian</td>
-              <td class="px-4 py-3 text-ms border">{{$data->score}}</td>
+              <td class="px-4 py-3 text-ms border">{{$data->total_score}}</td>
             </tr>
             @endif
           </tbody>

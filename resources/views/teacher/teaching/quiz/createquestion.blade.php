@@ -34,7 +34,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-              File Soal (Jika Ada)
+              File Soal
             </label>
             <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
               <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -44,181 +44,241 @@
               <input type='file' id="file" name="file" hidden>
             </label>
             <span id="file_name"></span>
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
-            <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Jenis Soal
-            </label>
-            <select name="is_multiple_choice" id="is_multiple_choice" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-              <option value="FALSE">Pilih Jenis Soal</option>
-              <option value="TRUE">Pilihan Ganda</option>
-              <option value="FALSE">Essai</option>
-            </select>
-          </div>
-        </div>
-        <div id="multiple_choice" style="display:none;">
-          <div id="answer_option">
-            <div class="flex flex-wrap -mx-3 mb-1">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  Jawaban Pilihan 1
-                </label>
-                <input name="answer_option_1" id="answer_option_1" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
-              </div>
-            </div>
-            <div class="flex items-start items-center mb-6">
-              <input id="checkbox" name="checkbox_answer_option_1" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
-              <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                  File Jawaban
-                </label>
-                <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
-                  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span class="mt-2 text-base leading-normal">Select a file</span>
-                  <input type='file' id="file_answer_option_1" name="file_answer_option_1" hidden>
-                </label>
-                <span id="file_name_answer_option_1"></span>
-              </div>
-            </div>
-          </div>
-          <div id="answer_option">
-            <div class="flex flex-wrap -mx-3 mb-1">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  Jawaban Pilihan 2
-                </label>
-                <input name="answer_option_2" id="answer_option_2" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
-              </div>
-            </div>
-            <div class="flex items-start items-center mb-6">
-              <input id="checkbox" name="checkbox_answer_option_2" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
-              <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                  File Jawaban
-                </label>
-                <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
-                  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span class="mt-2 text-base leading-normal">Select a file</span>
-                  <input type='file' id="file_answer_option_2" name="file_answer_option_2" hidden>
-                </label>
-                <span id="file_name_answer_option_2"></span>
-              </div>
-            </div>
-          </div>
-          <div id="answer_option">
-            <div class="flex flex-wrap -mx-3 mb-1">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  Jawaban Pilihan 3
-                </label>
-                <input name="answer_option_3" id="answer_option_3" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
-              </div>
-            </div>
-            <div class="flex items-start items-center mb-6">
-              <input id="checkbox" name="checkbox_answer_option_3" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
-              <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                  File Jawaban
-                </label>
-                <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
-                  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span class="mt-2 text-base leading-normal">Select a file</span>
-                  <input type='file' id="file_answer_option_3" name="file_answer_option_3" hidden>
-                </label>
-                <span id="file_name_answer_option_3"></span>
-              </div>
-            </div>
-          </div>
-          <div id="answer_option">
-            <div class="flex flex-wrap -mx-3 mb-1">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  Jawaban Pilihan 4
-                </label>
-                <input name="answer_option_4" id="answer_option_4" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
-              </div>
-            </div>
-            <div class="flex items-start items-center mb-6">
-              <input id="checkbox" name="checkbox_answer_option_4" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
-              <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                  File Jawaban
-                </label>
-                <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
-                  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span class="mt-2 text-base leading-normal">Select a file</span>
-                  <input type='file' id="file_answer_option_4" name="file_answer_option_4" hidden>
-                </label>
-                <span id="file_name_answer_option_4"></span>
-              </div>
-            </div>
-          </div>
-          <div id="answer_option">
-            <div class="flex flex-wrap -mx-3 mb-1">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                  Jawaban Pilihan 5
-                </label>
-                <input name="answer_option_5" id="answer_option_5" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
-              </div>
-            </div>
-            <div class="flex items-start items-center mb-6">
-              <input id="checkbox" name="checkbox_answer_option_5" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
-              <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
-            </div>
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full px-3">
-                <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
-                  File Jawaban
-                </label>
-                <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
-                  <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                  </svg>
-                  <span class="mt-2 text-base leading-normal">Select a file</span>
-                  <input type='file' id="file_answer_option_5" name="file_answer_option_5" hidden>
-                </label>
-                <span id="file_name_answer_option_5"></span>
-              </div>
+            <div class="container mt-3" id="alertbox">
+              <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+              role="alert">
+              <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path
+                d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+              </svg>
+              <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
             </div>
           </div>
         </div>
-        <div class="md:flex md:items-center">
-          <div class="md:w-1/3">
-            <button class="shadow bg-green-600 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-              Submit
-            </button>
-            <button onclick="window.location='{{ url ('/teacher/teaching/show', array("$id")) }}'" class="shadow bg-red-600 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-              Cancel
-            </button>
-          </div>
-          <div class="md:w-2/3"></div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+            Jenis Soal
+          </label>
+          <select name="is_multiple_choice" id="is_multiple_choice" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="FALSE">Pilih Jenis Soal</option>
+            <option value="TRUE">Pilihan Ganda</option>
+            <option value="FALSE">Essai</option>
+          </select>
         </div>
-      </form>
-    </div>
+      </div>
+      <div id="multiple_choice" style="display:none;">
+        <div id="answer_option">
+          <div class="flex flex-wrap -mx-3 mb-1">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                Jawaban Pilihan 1
+              </label>
+              <input name="answer_option_1" id="answer_option_1" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            </div>
+          </div>
+          <div class="flex items-start items-center mb-6">
+            <input id="checkbox" name="checkbox_answer_option_1" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
+            <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                File Jawaban 1
+              </label>
+              <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input type='file' id="file_answer_option_1" name="file_answer_option_1" hidden>
+              </label>
+              <span id="file_name_answer_option_1"></span>
+              <div class="container mt-3" id="alertbox">
+                <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                  d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div id="answer_option">
+          <div class="flex flex-wrap -mx-3 mb-1">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                Jawaban Pilihan 2
+              </label>
+              <input name="answer_option_2" id="answer_option_2" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            </div>
+          </div>
+          <div class="flex items-start items-center mb-6">
+            <input id="checkbox" name="checkbox_answer_option_2" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
+            <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                File Jawaban 2
+              </label>
+              <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input type='file' id="file_answer_option_2" name="file_answer_option_2" hidden>
+              </label>
+              <span id="file_name_answer_option_2"></span>
+              <div class="container mt-3" id="alertbox">
+                <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                  d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div id="answer_option">
+          <div class="flex flex-wrap -mx-3 mb-1">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                Jawaban Pilihan 3
+              </label>
+              <input name="answer_option_3" id="answer_option_3" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            </div>
+          </div>
+          <div class="flex items-start items-center mb-6">
+            <input id="checkbox" name="checkbox_answer_option_3" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
+            <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                File Jawaban 3
+              </label>
+              <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input type='file' id="file_answer_option_3" name="file_answer_option_3" hidden>
+              </label>
+              <span id="file_name_answer_option_3"></span>
+              <div class="container mt-3" id="alertbox">
+                <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                  d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div id="answer_option">
+          <div class="flex flex-wrap -mx-3 mb-1">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                Jawaban Pilihan 4
+              </label>
+              <input name="answer_option_4" id="answer_option_4" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            </div>
+          </div>
+          <div class="flex items-start items-center mb-6">
+            <input id="checkbox" name="checkbox_answer_option_4" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
+            <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                File Jawaban 4
+              </label>
+              <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input type='file' id="file_answer_option_4" name="file_answer_option_4" hidden>
+              </label>
+              <span id="file_name_answer_option_4"></span>
+              <div class="container mt-3" id="alertbox">
+                <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                  d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div id="answer_option">
+          <div class="flex flex-wrap -mx-3 mb-1">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                Jawaban Pilihan 5
+              </label>
+              <input name="answer_option_5" id="answer_option_5" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            </div>
+          </div>
+          <div class="flex items-start items-center mb-6">
+            <input id="checkbox" name="checkbox_answer_option_5" aria-describedby="checkbox" type="checkbox" class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded">
+            <label for="checkbox" class="text-sm ml-3 font-medium text-gray-900">Kunci Jawaban</label>
+          </div>
+          <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+              <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" >
+                File Jawaban 5
+              </label>
+              <label class="w-64 flex flex-col w-full items-center px-4 py-6 bg-yellow-400 text-white rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-yellow-500 hover:text-white">
+                <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                </svg>
+                <span class="mt-2 text-base leading-normal">Select a file</span>
+                <input type='file' id="file_answer_option_5" name="file_answer_option_5" hidden>
+              </label>
+              <span id="file_name_answer_option_5"></span>
+              <div class="container mt-3" id="alertbox">
+                <div class="container bg-red-500 flex items-center text-white text-sm font-bold px-4 py-3 relative"
+                role="alert">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                  d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+                </svg>
+                <p>File Berekstensi *png, atau *jpg Dengan Maksimal Size 2MB</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="md:flex md:items-center">
+        <div class="md:w-1/3">
+          <button class="shadow bg-green-600 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+            Submit
+          </button>
+          <button onclick="window.location='{{ url ('/teacher/teaching/show', array("$id")) }}'" class="shadow bg-red-600 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+            Cancel
+          </button>
+        </div>
+        <div class="md:w-2/3"></div>
+      </div>
+    </form>
   </div>
+</div>
 </div>
 <script>
 var konten = document.getElementById("question");

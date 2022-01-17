@@ -4,7 +4,7 @@
   <div class="px-5 mx-auto max-w-7x1">
     <h1 class="mb-12 text-center text-4xl text-black font-bold">Form Pemetaan Jam Mengajar</h1>
     <div class="md:flex md:justify-center md:space-x-8 md:px-14">
-      <form action="/principal/teaching/store" method="POST" class="w-full max-w-lg" enctype="multipart/form-data">
+      <form action="/principal/teaching/store" method="POST" class="w-full max-w-lg">
         @csrf
         @if(session('errors'))
         @foreach ($errors->all() as $error)

@@ -11,7 +11,7 @@
     </a>
     <h1 class="mb-12 text-center text-4xl text-black font-bold">Form Buat RPP</h1>
     <div class="md:flex md:justify-center md:space-x-8 md:px-14">
-      <form action="{{ route('teacherlessonplanstore')}}" method="POST" class="w-full max-w-lg" enctype="multipart/form-data">
+      <form action="{{ route('teacherlessonplanstore')}}" method="POST" class="w-full max-w-lg">
         @csrf
         @if(session('errors'))
         @foreach ($errors->all() as $error)
