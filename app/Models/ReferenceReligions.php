@@ -20,4 +20,9 @@ class ReferenceReligions extends Model
     {
       return $this->hasMany('App\Models\TeacherPersonalData', 'id');
     }
+
+    public function parentpersonaldata()
+    {
+      return $this->hasMany('App\Models\ParentPersonalData', 'id');
+    }
 }

@@ -56,4 +56,9 @@ class StudentPersonalData extends Model
   {
     return $this->hasMany('App\Models\User', 'id');
   }
+
+  public function parentpersonaldata()
+  {
+    return $this->hasMany('App\Models\ParentPersonalData', 'id');
+  }
 }

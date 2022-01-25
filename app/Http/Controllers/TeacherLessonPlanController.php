@@ -50,7 +50,7 @@ class TeacherLessonPlanController extends Controller
     {
         $user_id = auth()->user()->id;
         $school_id = auth()->user()->school_id;
-        $check=LessonPlan::where(['user_id' => $user_id, 'teaching_hour_id' => $request->teaching_hour_id, 'is_deleted' => FALSE])->count();
+        $check=LessonPlan::where(['user_id' => $user_id, 'teaching_hour_id' => $request->teaching_hour_id, 'meeting' => $request->meeting, 'is_deleted' => FALSE])->count();
         if($check > 0){
           Alert::error('Gagal', 'RPP Sudah Ada!');
           return redirect()->back();

@@ -25,4 +25,9 @@ class ReferenceRanks extends Model
     {
       return $this->hasMany('App\Models\TeacherPersonalData', 'id');
     }
+
+    public function executivepersonaldata()
+    {
+      return $this->hasMany('App\Models\ExecutivePersonalData', 'id');
+    }
 }

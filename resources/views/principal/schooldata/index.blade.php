@@ -43,27 +43,27 @@
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Provinsi</td>
               <td class="px-4 py-3 text-ms border font-semibold">:</td>
-              <td class="px-4 py-3 text-ms border">{{$data->province}}/td>
+              <td class="px-4 py-3 text-ms border">{{$data->province}}</td>
             </tr>
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Kabupaten / Kota</td>
               <td class="px-4 py-3 text-ms border font-semibold">:</td>
-              <td class="px-4 py-3 text-ms border">{{$data->city}}/td>
+              <td class="px-4 py-3 text-ms border">{{$data->city}}</td>
             </tr>
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Kecamatan</td>
               <td class="px-4 py-3 text-ms border font-semibold">:</td>
-              <td class="px-4 py-3 text-ms border">{{$data->district}}/td>
+              <td class="px-4 py-3 text-ms border">{{$data->district}}</td>
             </tr>
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Kelurahan</td>
               <td class="px-4 py-3 text-ms border font-semibold">:</td>
-              <td class="px-4 py-3 text-ms border">{{$data->village}}/td>
+              <td class="px-4 py-3 text-ms border">{{$data->village}}</td>
             </tr>
             <tr class="text-gray-700 text-center">
               <td class="px-4 py-3 text-ms border font-semibold">Kode POS</td>
               <td class="px-4 py-3 text-ms border font-semibold">:</td>
-              <td class="px-4 py-3 text-ms border">{{$data->zip_code}}/td>
+              <td class="px-4 py-3 text-ms border">{{$data->zip_code}}</td>
             </tr>
           </tbody>
         </table>

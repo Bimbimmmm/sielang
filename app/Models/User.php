@@ -27,8 +27,11 @@ class User extends Authenticatable
       'password',
       'student_personal_data_id',
       'teacher_personal_data_id',
+      'executive_personal_data_id',
+      'parent_personal_data_id',
       'school_id',
       'role_id',
+      'is_verified',
       'is_deleted',
     ];
 
@@ -100,5 +103,10 @@ class User extends Authenticatable
      public function LessonResultDetail()
      {
        return $this->hasMany('App\Models\LessonResultDetail', 'id');
+     }
+
+     public function VerifiedUser()
+     {
+       return $this->hasMany('App\Models\VerifiedUser', 'id');
      }
 }

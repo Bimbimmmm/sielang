@@ -23,6 +23,7 @@ class TeacherPersonalData extends Model
         'id_number',
         'educator_number',
         'birth_place',
+        'birth_date',
         'gender',
         'marital_status_id',
         'religion_id',
