@@ -37,6 +37,10 @@ class RolesSeeder extends Seeder
           [
               'name' => 'Eksekutif',
               'number' => 6
+          ],
+          [
+              'name' => 'Orang Tua',
+              'number' => 7
           ]
       ]);
     }

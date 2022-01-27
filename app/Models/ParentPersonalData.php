@@ -20,10 +20,7 @@ class ParentPersonalData extends Model
         'name',
         'id_number',
         'student_personal_data_id',
-        'birth_date',
-        'birth_place',
-        'gender',
-        'religion_id',
+        'birth',
         'phone_number',
         'address',
         'province',
@@ -32,11 +29,6 @@ class ParentPersonalData extends Model
         'village',
         'zip_code'
     ];
-
-    public function religion()
-    {
-      return $this->belongsTo('App\Models\ReferenceReligions', 'religion_id');
-    }
 
     public function student()
     {

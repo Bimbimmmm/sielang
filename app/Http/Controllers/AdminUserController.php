@@ -187,6 +187,47 @@ class AdminUserController extends Controller
           Alert::error('Gagal', 'Gagal Membuat Akun! Silahkan ulangi beberapa saat lagi');
           return redirect()->route('adminusercreate');
       }
+
+      /*
+      else if($check->name == "Eksekutif"){
+
+        $request->validate([
+            'name' => ['required'],
+            'registration_number' => ['required', 'unique:executive_personal_data'],
+            'id_number' => ['required'],
+            'birth_place' => ['required'],
+            'birth_date' => ['required'],
+            'gender' => ['required'],
+            'position' => ['required'],
+            'rank_id' => ['required'],
+            'address' => ['required'],
+            'zip_code' => ['required'],
+            'province' => ['required'],
+            'city' => ['required'],
+            'district' => ['required'],
+            'village' => ['required'],
+        ]);
+
+        $data                       = new ExecutivePersonalData;
+        $data->name                 = $request->name;
+        $data->registration_number  = $request->registration_number;
+        $data->id_number            = $request->id_number;
+        $data->birth_place          = $request->birth_place;
+        $data->birth_date           = $birth_date;
+        $data->gender               = $request->gender;
+        $data->position             = $request->position;
+        $data->rank_id              = $request->rank_id;
+        $data->address              = $request->address;
+        $data->zip_code             = $request->zip_code;
+        $data->province             = $get_province->name;
+        $data->city                 = $get_city->name;
+        $data->district             = $get_district->name;
+        $data->village              = $get_village->name;
+        $save                       = $data->save();
+
+        $check_e_id=ExecutivePersonalData::where(['name' => $request->name, 'registration_number' => $request->registration_number])->first();
+        $get_e_id=$check_e_id->id;
+      */
     }
 
     /**
