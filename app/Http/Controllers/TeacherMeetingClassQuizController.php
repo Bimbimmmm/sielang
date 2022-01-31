@@ -233,7 +233,6 @@ class TeacherMeetingClassQuizController extends Controller
       }else{
         $file_answer_option_5 = null;
       }
-
       $data = new ClassQuizQuestion;
       $data->meeting_quiz_id = $id;
       $data->question = $request->question;
@@ -244,7 +243,7 @@ class TeacherMeetingClassQuizController extends Controller
 
       $get=ClassQuizQuestion::where(['meeting_quiz_id' => $id, 'question' => $request->question])->first();
 
-      if($request->is_multiple_choice == TRUE){
+      if($request->is_multiple_choice == "TRUE"){
 
         $data1 = new ClassQuizChoice;
         $data1->meeting_quiz_question_id = $get->id;
@@ -362,8 +361,9 @@ class TeacherMeetingClassQuizController extends Controller
   public function showcol($id, $idq, $idt)
   {
       $data=ClassQuizCollection::where('id', $id)->first();
+      $choices=ClassQuizCollectionAnswer::where(['meeting_quiz_collection_id' => $data->id, 'is_multiple_choice' => TRUE])->get();
       $essais=ClassQuizCollectionAnswer::where(['meeting_quiz_collection_id' => $data->id, 'is_multiple_choice' => FALSE])->get();
-      return view('teacher/teaching/quiz/showcol', compact('data', 'id', 'idq', 'idt', 'essais'));
+      return view('teacher/teaching/quiz/showcol', compact('data', 'id', 'idq', 'idt', 'essais', 'choices'));
   }
 
   /**

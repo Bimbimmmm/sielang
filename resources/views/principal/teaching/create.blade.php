@@ -19,7 +19,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Nama Guru
+              Nama Guru <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <select name="user_id" id="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <option>Pilih Nama Guru</option>
@@ -32,7 +32,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Nama Mata Pelajaran
+              Nama Mata Pelajaran <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <select name="subject_id" id="subject_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <option>Pilih Nama Pelajaran</option>
@@ -45,7 +45,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Nama Kelas
+              Nama Kelas <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <select name="class_id" id="class_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <option>Pilih Kelas</option>
@@ -58,15 +58,15 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Jumlah Jam Mengajar
+              Jumlah Jam Mengajar <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
-            <input name="hour" id="hour" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" required>
+            <input name="hour" id="hour" placeholder="Masukkan Jumlah Jam Mengajar Per-Minggu" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" required>
           </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Periode Semester
+              Periode Semester <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <select name="semester_period" id="semester_period" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
               <option>Pilih Semester</option>
@@ -78,9 +78,9 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Tahun Semester
+              Tahun Semester <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
-            <input name="year" id="year" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" required>
+            <input name="year" id="year" placeholder="Masukkan Tahun Semester Berjalan ex: 2021" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" required>
           </div>
         </div>
         <div class="md:flex md:items-center">

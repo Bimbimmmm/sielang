@@ -79,51 +79,51 @@ class RegisteredUserController extends Controller
         if($check->name == "Guru"){
 
           $request->validate([
-              'name' => ['required'],
-              'registration_number' => ['required', 'unique:teacher_personal_data'],
-              'id_number' => ['required'],
-              'educator_number' => ['required'],
-              'birth_place' => ['required'],
-              'birth_date' => ['required'],
-              'gender' => ['required'],
-              'marital_status_id' => ['required'],
-              'religion_id' => ['required'],
-              'rank_id' => ['required'],
-              'position_id' => ['required'],
-              'status_id' => ['required'],
-              'school_id' => ['required'],
-              'education_id' => ['required'],
-              'cs_candidate_year' => ['required'],
-              'cs_year' => ['required'],
-              'tax_number' => ['required'],
-              'teacher_type' => ['required'],
-              'address' => ['required'],
-              'zip_code' => ['required'],
-              'province' => ['required'],
-              'city' => ['required'],
-              'district' => ['required'],
-              'village' => ['required'],
+            'teacher_name' => ['required'],
+            'teacher_registration_number' => ['required', 'unique:teacher_personal_data'],
+            'teacher_id_number' => ['required'],
+            'teacher_educator_number' => ['required'],
+            'teacher_birth_place' => ['required'],
+            'teacher_birth_date' => ['required'],
+            'teacher_gender' => ['required'],
+            'teacher_marital_status_id' => ['required'],
+            'teacher_religion_id' => ['required'],
+            'teacher_rank_id' => ['required'],
+            'teacher_position_id' => ['required'],
+            'teacher_status_id' => ['required'],
+            'teacher_school_id' => ['required'],
+            'teacher_education_id' => ['required'],
+            'teacher_cs_candidate_year' => ['required'],
+            'teacher_cs_year' => ['required'],
+            'teacher_tax_number' => ['required'],
+            'teacher_teacher_type' => ['required'],
+            'address' => ['required'],
+            'zip_code' => ['required'],
+            'province' => ['required'],
+            'city' => ['required'],
+            'district' => ['required'],
+            'village' => ['required'],
           ]);
 
           $data                       = new TeacherPersonalData;
-          $data->name                 = $request->name;
-          $data->registration_number  = $request->registration_number;
-          $data->id_number            = $request->id_number;
-          $data->educator_number      = $request->educator_number;
-          $data->birth_place          = $request->birth_place;
-          $data->birth_date           = $request->birth_date;
-          $data->gender               = $request->gender;
-          $data->marital_status_id    = $request->marital_status_id;
-          $data->religion_id          = $request->religion_id;
-          $data->rank_id              = $request->rank_id;
-          $data->position_id          = $request->position_id;
-          $data->status_id            = $request->status_id;
-          $data->school_id            = $request->school_id;
-          $data->education_id         = $request->education_id;
-          $data->cs_candidate_year    = $request->cs_candidate_year;
-          $data->cs_year              = $request->cs_year;
-          $data->tax_number           = $request->tax_number;
-          $data->teacher_type         = $request->teacher_type;
+          $data->name                 = $request->teacher_name;
+          $data->registration_number  = $request->teacher_registration_number;
+          $data->id_number            = $request->teacher_id_number;
+          $data->educator_number      = $request->teacher_educator_number;
+          $data->birth_place          = $request->teacher_birth_place;
+          $data->birth_date           = $request->teacher_birth_date;
+          $data->gender               = $request->teacher_gender;
+          $data->marital_status_id    = $request->teacher_marital_status_id;
+          $data->religion_id          = $request->teacher_religion_id;
+          $data->rank_id              = $request->teacher_rank_id;
+          $data->position_id          = $request->teacher_position_id;
+          $data->status_id            = $request->teacher_status_id;
+          $data->school_id            = $request->teacher_school_id;
+          $data->education_id         = $request->teacher_education_id;
+          $data->cs_candidate_year    = $request->teacher_cs_candidate_year;
+          $data->cs_year              = $request->teacher_cs_year;
+          $data->tax_number           = $request->teacher_tax_number;
+          $data->teacher_type         = $request->teacher_teacher_type;
           $data->address              = $request->address;
           $data->zip_code             = $request->zip_code;
           $data->province             = $get_province->name;
@@ -132,20 +132,21 @@ class RegisteredUserController extends Controller
           $data->village              = $get_village->name;
           $save                       = $data->save();
 
-          $check_t_id=TeacherPersonalData::where(['name' => $request->name, 'registration_number' => $request->registration_number])->first();
+          $check_t_id=TeacherPersonalData::where(['name' => $request->teacher_name, 'registration_number' => $request->teacher_registration_number])->first();
           $get_t_id=$check_t_id->id;
+          $school_id = $request->teacher_school_id;
         }else if($check->name == "Pelajar"){
 
           $request->validate([
-              'name' => ['required'],
+              'student_name' => ['required'],
               'student_number' => ['required', 'unique:student_personal_data'],
-              'id_number' => ['required'],
-              'national_student_number' => ['required'],
-              'birth_place' => ['required'],
-              'birth_date' => ['required'],
-              'gender' => ['required'],
-              'religion_id' => ['required'],
-              'school_id' => ['required'],
+              'student_id_number' => ['required'],
+              'student_national_student_number' => ['required'],
+              'student_birth_place' => ['required'],
+              'student_birth_date' => ['required'],
+              'student_gender' => ['required'],
+              'student_religion_id' => ['required'],
+              'student_school_id' => ['required'],
               'address' => ['required'],
               'zip_code' => ['required'],
               'province' => ['required'],
@@ -155,15 +156,15 @@ class RegisteredUserController extends Controller
           ]);
 
           $data                           = new StudentPersonalData;
-          $data->name                     = $request->name;
+          $data->name                     = $request->student_name;
           $data->student_number           = $request->student_number;
-          $data->id_number                = $request->id_number;
-          $data->national_student_number  = $request->national_student_number;
-          $data->birth_place              = $request->birth_place;
-          $data->birth_date               = $request->birth_date;
-          $data->gender                   = $request->gender;
-          $data->religion_id              = $request->religion_id;
-          $data->school_id                = $operator;
+          $data->id_number                = $request->student_id_number;
+          $data->national_student_number  = $request->student_national_student_number;
+          $data->birth_place              = $request->student_birth_place;
+          $data->birth_date               = $request->student_birth_date;
+          $data->gender                   = $request->student_gender;
+          $data->religion_id              = $request->student_religion_id;
+          $data->school_id                = $request->student_school_id;
           $data->address                  = $request->address;
           $data->zip_code                 = $request->zip_code;
           $data->province                 = $get_province->name;
@@ -172,18 +173,16 @@ class RegisteredUserController extends Controller
           $data->village                  = $get_village->name;
           $save                           = $data->save();
 
-          $check_s_id=StudentPersonalData::where(['name' => $request->name, 'national_student_number' => $request->national_student_number])->first();
+          $check_s_id=StudentPersonalData::where(['name' => $request->student_name, 'national_student_number' => $request->student_national_student_number])->first();
           $get_s_id=$check_s_id->id;
+          $school_id = $request->student_school_id;
 
         }else if($check->name == "Orang Tua"){
 
           $request->validate([
-              'name' => ['required'],
-              'id_number' => ['required', 'unique:parent_personal_data'],
-              'birth_place' => ['required'],
-              'birth_date' => ['required'],
-              'gender' => ['required'],
-              'religion_id' => ['required'],
+              'parent_name' => ['required'],
+              'parent_birth' => ['required'],
+              'parent_phone_number' => ['required'],
               'address' => ['required'],
               'zip_code' => ['required'],
               'province' => ['required'],
@@ -192,17 +191,15 @@ class RegisteredUserController extends Controller
               'village' => ['required'],
           ]);
 
-          $check_student=StudentPersonalData::where('national_student_number', $request->national_student_number)->first();
+          $check_student=StudentPersonalData::where('national_student_number', $request->parent_national_student_number)->first();
 
           if($check_student != NULL){
             $data                             = new ParentPersonalData;
-            $data->name                       = $request->name;
-            $data->id_number                  = $request->id_number;
+            $data->name                       = $request->parent_name;
+            $data->id_number                  = $request->parent_id_number;
             $data->student_personal_data_id   = $check_student->id;
-            $data->birth_place                = $request->birth_place;
-            $data->birth_date                 = $request->birth_date;
-            $data->gender                     = $request->gender;
-            $data->religion_id                = $request->religion_id;
+            $data->birth                      = $request->parent_birth;
+            $data->phone_number               = $request->parent_phone_number;
             $data->address                    = $request->address;
             $data->zip_code                   = $request->zip_code;
             $data->province                   = $get_province->name;
@@ -211,8 +208,9 @@ class RegisteredUserController extends Controller
             $data->village                    = $get_village->name;
             $save                             = $data->save();
 
-            $check_p_id=ParentPersonalData::where(['name' => $request->name, 'id_number' => $request->id_number])->first();
+            $check_p_id=ParentPersonalData::where(['name' => $request->parent_name, 'id_number' => $request->parent_id_number])->first();
             $get_p_id=$check_p_id->id;
+            $school_id = $check_student->school_id;
           }else{
             Alert::error('Gagal', 'NISN Yang Dimasukkan Tidak Terdaftar!');
             return redirect()->back();
@@ -225,7 +223,7 @@ class RegisteredUserController extends Controller
             'teacher_personal_data_id' => $get_t_id,
             'student_personal_data_id' => $get_s_id,
             'parent_personal_data_id' => $get_p_id,
-            'school_id' => $request->school_id,
+            'school_id' => $school_id,
             'role_id' => $request->role_id,
             'is_verified' => FALSE,
             'is_deleted' => FALSE

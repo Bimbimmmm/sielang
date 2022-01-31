@@ -13,7 +13,7 @@ class ExecutiveController extends Controller
      */
     public function index()
     {
-        //
+        return view('executive/index');
     }
 
     /**

@@ -9,7 +9,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/logo.png') }}" />
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
   <link rel="stylesheet" href="{{ asset('css/sweetalert2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/materialicons.css') }}">
   <link rel="stylesheet" href="{{ asset('css/materialdesignicons.min.css') }}">

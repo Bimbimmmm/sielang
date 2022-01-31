@@ -114,16 +114,16 @@ class StudentClassExamController extends Controller
           Alert::error('Gagal', 'Jawaban Tidak Boleh Kosong');
           return redirect()->back();
         }else{
-          $choice = ClassExamChoice::where('id', $request->answer)->first();
           $data = ClassExamCollectionAnswer::findOrFail($idqs);
           if($data->is_multiple_choice == TRUE){
+            $choice = ClassExamChoice::where('id', $request->answer)->first();
             $data->update([
                 'answer'    => $choice->choice,
                 'is_true'   => $choice->is_answer
             ]);
           }else{
             $data->update([
-                'answer'    => $choice->choice
+                'answer'    => $request->answer
             ]);
           }
           $get=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $idcol, 'answer' => NULL])->first();
@@ -149,8 +149,8 @@ class StudentClassExamController extends Controller
      {
         $score=0;
         $data = ClassExamCollection::findOrFail($idcol);
-        $gets=ClassExamCollectionAnswer::where('meeting_exam_collection_id', $data->id)->get();
-        $count=ClassExamCollectionAnswer::where('meeting_exam_collection_id', $data->id)->count();
+        $gets=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $data->id, 'is_multiple_choice' => TRUE])->get();
+        $count=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $data->id, 'is_multiple_choice' => TRUE])->count();
         foreach ($gets as $get) {
           if($get->is_true == TRUE){
             $score=$score+1;

@@ -55,5 +55,10 @@ class AppServiceProvider extends ServiceProvider
           $getisexcecutiveid=Roles::where('name', 'Eksekutif')->first();
           return $user->role_id == $getisexcecutiveid->id;
       });
+
+      Gate::define('isParents', function($user) {
+          $getisparentsid=Roles::where('name', 'Orang Tua')->first();
+          return $user->role_id == $getisparentsid->id;
+      });
     }
 }

@@ -187,42 +187,37 @@
                 </label>
                 <input name="password_confirmation" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Ulangi Password">
               </div>
+
               <div id="parents" style="display:none;">
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nama Lengkap Wali
                   </label>
-                  <input name="name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
+                  <input name="parent_name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Induk Kependudukan
                   </label>
-                  <input name="id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK">
+                  <input name="parent_id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     NISN Siswa
                   </label>
-                  <input name="student_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NISN Peserta Didik">
+                  <input name="parent_national_student_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NISN Peserta Didik">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Tempat dan Tanggal Lahir
                   </label>
-                  <input name="birth" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat dan Tanggal Lahir">
+                  <input name="parent_birth" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat dan Tanggal Lahir">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Kontak
                   </label>
-                  <input name="phone_number" class="w-full content-center text-base px-4px py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan Nomor HP / Whatsapp">
-                </div>
-                <div class="mt-2 content-center">
-                  <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
-                    Alamat
-                  </label>
-                  <input name="address" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Alamat">
+                  <input name="parent_phone_number" class="w-full content-center text-base px-4px py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan Nomor HP / Whatsapp">
                 </div>
               </div>
 
@@ -231,13 +226,13 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nama Lengkap
                   </label>
-                  <input name="name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
+                  <input name="student_name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Induk Kependudukan
                   </label>
-                  <input name="id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK (Dapat Dilihat di KK)">
+                  <input name="student_id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK (Dapat Dilihat di KK)">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
@@ -249,25 +244,25 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Induk Siswa Nasional
                   </label>
-                  <input name="national_student_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NISN">
+                  <input name="student_national_student_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NISN">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Tempat Lahir
                   </label>
-                  <input name="birth_place" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat Lahir">
+                  <input name="student_birth_place" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat Lahir">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Tanggal Lahir
                   </label>
-                  <input name="birth_date" id="birth_date" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
+                  <input name="student_birth_date" id="birth_date" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Jenis Kelamin
                   </label>
-                  <select name="gender" id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="student_gender" id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Jenis Kelamin</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
@@ -277,7 +272,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Agama
                   </label>
-                  <select name="religion_id" id="religion_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="student_religion_id" id="religion_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Agama</option>
                     @foreach($religions as $religion)
                     <option value="{{$religion->id}}">{{$religion->name}}</option>
@@ -288,7 +283,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nama Sekolah
                   </label>
-                  <select name="school_id" id="school_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="student_school_id" id="school_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Sekolah</option>
                     @foreach($schools as $school)
                     <option value="{{$school->id}}">{{$school->name}}</option>
@@ -302,43 +297,43 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nama Lengkap
                   </label>
-                  <input name="name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
+                  <input name="teacher_name" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Nama Lengkap">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Induk Kependudukan
                   </label>
-                  <input name="id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK">
+                  <input name="teacher_id_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="number" placeholder="Masukkan NIK">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Nomor Induk Pegawai
                   </label>
-                  <input name="registration_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NIP">
+                  <input name="teacher_registration_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NIP">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     NUPTK
                   </label>
-                  <input name="educator_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NUPTK">
+                  <input name="teacher_educator_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NUPTK">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Tempat Lahir
                   </label>
-                  <input name="birth_place" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat Lahir">
+                  <input name="teacher_birth_place" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Tempat Lahir">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Tanggal Lahir
                   </label>
-                  <input name="birth_date" id="birth_date" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
+                  <input name="teacher_birth_date" id="birth_date" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Jenis Kelamin
                   </label>
-                  <select name="gender" id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_gender" id="gender" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Jenis Kelamin</option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
@@ -348,7 +343,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Status Perkawinan
                   </label>
-                  <select name="marital_status_id" id="marital_status_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_marital_status_id" id="marital_status_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Status Perkawinan</option>
                     @foreach($maritals as $marital)
                     <option value="{{$marital->id}}">{{$marital->name}}</option>
@@ -359,7 +354,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Agama
                   </label>
-                  <select name="religion_id" id="religion_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_religion_id" id="religion_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Agama</option>
                     @foreach($religions as $religion)
                     <option value="{{$religion->id}}">{{$religion->name}}</option>
@@ -370,7 +365,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Pangkat dan Golongan
                   </label>
-                  <select name="rank_id" id="rank_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_rank_id" id="rank_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Pangkat dan Golongan</option>
                     @foreach($ranks as $rank)
                     <option value={{$rank->id}}>{{$rank->rank}} / {{$rank->group}}</option>
@@ -381,7 +376,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Unit Kerja
                   </label>
-                  <select name="school_id" id="school_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_school_id" id="school_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Sekolah</option>
                     @foreach($schools as $school)
                     <option value="{{$school->id}}">{{$school->name}}</option>
@@ -392,7 +387,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Jabatan
                   </label>
-                  <select name="position_id" id="position_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_position_id" id="position_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Jabatan</option>
                     @foreach($positions as $position)
                     <option value="{{$position->id}}">{{$position->name}}</option>
@@ -403,7 +398,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Status Kepegawaian
                   </label>
-                  <select name="status_id" id="status_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_status_id" id="status_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Status</option>
                     @foreach($statuss as $status)
                     <option value="{{$status->id}}">{{$status->name}}</option>
@@ -414,7 +409,7 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Pendidikan Terakhir
                   </label>
-                  <select name="education_id" id="education_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                  <select name="teacher_education_id" id="education_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                     <option value="">Pilih Pendidikan Terakhir</option>
                     @foreach($educations as $education)
                     <option value="{{$education->id}}">{{$education->name}}</option>
@@ -425,25 +420,25 @@
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     T.M.T PNS
                   </label>
-                  <input name="cs_year" id="cs_year" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
+                  <input name="teacher_cs_year" id="cs_year" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     T.M.T CPNS
                   </label>
-                  <input name="cs_candidate_year" id="cs_candidate_year" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
+                  <input name="teacher_cs_candidate_year" id="cs_candidate_year" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Format DD-MM-YYYY (ex:10-10-2010)">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     NPWP
                   </label>
-                  <input name="tax_number" id="tax_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NPWP">
+                  <input name="teacher_tax_number" id="tax_number" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan NPWP">
                 </div>
                 <div class="mt-2 content-center">
                   <label class="ml-3 text-sm font-bold text-gray-700 tracking-wide">
                     Jenis Guru
                   </label>
-                  <input name="teacher_type" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Jenis Guru">
+                  <input name="teacher_teacher_type" class="w-full content-center text-base px-4 py-2 border-b rounded-2xl border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Masukkan Jenis Guru">
                 </div>
               </div>
 

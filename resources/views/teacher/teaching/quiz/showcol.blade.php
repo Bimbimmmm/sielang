@@ -37,6 +37,53 @@
       </div>
   </div>
   <div class="w-full overflow-x-auto py-5">
+    <h1 class="mb-6 text-center text-2xl text-gray-600 font-bold">Jawaban Pilihan Ganda</h1>
+    <table class="w-full">
+      <thead>
+        <tr>
+          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            No
+          </th>
+          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            Jawaban
+          </th>
+          <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+            Status
+          </th>
+        </tr>
+      </thead>
+      <tbody class="bg-white">
+        @foreach($choices as $choice)
+        <tr>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+            <p class="text-gray-900 whitespace-no-wrap">
+              {{$loop->iteration}}
+            </p>
+          </td>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+            <p class="text-gray-900 whitespace-no-wrap">
+              @if($choice->is_true != NULL)
+              {{$choice->answer}}
+              @else
+              <span class="inline-block rounded-min text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">Tidak Dijawab</span>
+              @endif
+            </p>
+          </td>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+            <p class="text-gray-900 whitespace-no-wrap">
+              @if($choice->is_true == TRUE)
+              <span class="inline-block rounded-min text-white bg-green-500 px-2 py-1 text-xs font-bold mr-3">Benar</span>
+              @else
+              <span class="inline-block rounded-min text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">Salah</span>
+              @endif
+            </p>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+  <div class="w-full overflow-x-auto py-5">
     <h1 class="mb-6 text-center text-2xl text-gray-600 font-bold">Jawaban Essai</h1>
     <table class="w-full">
       <thead>
@@ -59,7 +106,11 @@
           </td>
           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
             <p class="text-gray-900 whitespace-no-wrap">
-              {{$essai->user->answer}}
+            @if($essai->answer != NULL)
+            {{$essai->answer}}
+            @else
+            <span class="inline-block rounded-min text-white bg-red-500 px-2 py-1 text-xs font-bold mr-3">Tidak Dijawab</span>
+            @endif
             </p>
           </td>
         </tr>
@@ -108,6 +159,7 @@
             <option value=30>30 : 70</option>
             <option value=20>20 : 80</option>
             <option value=10>10 : 90</option>
+            <option value=0>0 : 100</option>
           </select>
         </div>
       </div>

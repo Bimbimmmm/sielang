@@ -26,7 +26,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Nama Kuis
+              Nama Kuis <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <input name="name" id="name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" required>
           </div>
@@ -34,7 +34,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Tanggal Mulai Kuis
+              Tanggal Mulai Kuis <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <input id="start_date" name="start_date" class="datepicker input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" required>
           </div>
@@ -42,7 +42,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Tanggal Kadaluarsa Kuis
+              Tanggal Kadaluarsa Kuis <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <input id="expired_date" name="expired_date" class="datepicker input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" required>
           </div>
@@ -50,7 +50,7 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Waktu Pengerjaan Kuis (Dalam Menit)
+              Waktu Pengerjaan Kuis (Dalam Menit) <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <input id="working_time" name="working_time" class="input appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="number" min="1" required>
           </div>

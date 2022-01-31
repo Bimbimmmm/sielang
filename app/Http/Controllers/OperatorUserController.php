@@ -28,7 +28,7 @@ class OperatorUserController extends Controller
     {
           $school_id = auth()->user()->school_id;
           $role=Roles::where('name', 'Pelajar')->first();
-          $datas=User::where(['school_id' => $school_id, 'role_id' => $role->id])->get();
+          $datas=User::where(['school_id' => $school_id, 'role_id' => $role->id, 'is_verified' => TRUE, 'is_deleted' => FALSE])->get();
           return view('operator/user/index', compact('datas'));
     }
 

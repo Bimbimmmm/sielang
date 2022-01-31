@@ -43,10 +43,14 @@
           </br>
           <form action="{{ route('studentclassexamanswer', array("$id", "$idc", "$idcol", "$ques->id"))}}" method="POST">
           @csrf
+          @if($ques->is_multiple_choice == TRUE)
             @foreach($choices as $choice)
             <input type="radio" id="answer" name="answer" value="{{$choice->id}}">
             <label for="answer">{{$choice->choice}}</label><br><br>
             @endforeach
+            @else
+            <input name="answer" id="answer" placeholder="Tuliskan Jawaban" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
+            @endif
             <button class="shadow bg-green-600 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
               Simpan dan Lanjutkan
             </button>

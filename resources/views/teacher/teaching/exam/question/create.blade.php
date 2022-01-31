@@ -26,7 +26,19 @@
         <div class="flex flex-wrap -mx-3 mb-6">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Pertanyaan
+              Jenis Soal <span class="text-xs text-red-500"><i>*required</i></span>
+            </label>
+            <select name="is_multiple_choice" id="is_multiple_choice" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+              <option value="FALSE">Pilih Jenis Soal</option>
+              <option value="TRUE">Pilihan Ganda</option>
+              <option value="FALSE">Essai</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+              Pertanyaan <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
             <textarea name="question" id="question" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required></textarea>
           </div>
@@ -56,26 +68,14 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full px-3">
-          <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-            Jenis Soal
-          </label>
-          <select name="is_multiple_choice" id="is_multiple_choice" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-            <option value="FALSE">Pilih Jenis Soal</option>
-            <option value="TRUE">Pilihan Ganda</option>
-            <option value="FALSE">Essai</option>
-          </select>
-        </div>
-      </div>
       <div id="multiple_choice" style="display:none;">
         <div id="answer_option">
           <div class="flex flex-wrap -mx-3 mb-1">
             <div class="w-full px-3">
               <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-                Jawaban Pilihan 1
+                Jawaban Pilihan 1 <span class="text-xs text-red-500"><i>*required</i></span>
               </label>
-              <input name="answer_option_1" id="answer_option_1" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+              <input name="answer_option_1" id="answer_option_1" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
             </div>
           </div>
           <div class="flex items-start items-center mb-6">
@@ -112,9 +112,9 @@
         <div class="flex flex-wrap -mx-3 mb-1">
           <div class="w-full px-3">
             <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-              Jawaban Pilihan 2
+              Jawaban Pilihan 2 <span class="text-xs text-red-500"><i>*required</i></span>
             </label>
-            <input name="answer_option_2" id="answer_option_2" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+            <input name="answer_option_2" id="answer_option_2" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
           </div>
         </div>
         <div class="flex items-start items-center mb-6">
@@ -151,9 +151,9 @@
       <div class="flex flex-wrap -mx-3 mb-1">
         <div class="w-full px-3">
           <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-            Jawaban Pilihan 3
+            Jawaban Pilihan 3 <span class="text-xs text-red-500"><i>*required</i></span>
           </label>
-          <input name="answer_option_3" id="answer_option_3" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+          <input name="answer_option_3" id="answer_option_3" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
         </div>
       </div>
       <div class="flex items-start items-center mb-6">
@@ -190,9 +190,9 @@
     <div class="flex flex-wrap -mx-3 mb-1">
       <div class="w-full px-3">
         <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-          Jawaban Pilihan 4
+          Jawaban Pilihan 4 <span class="text-xs text-red-500"><i>*required</i></span>
         </label>
-        <input name="answer_option_4" id="answer_option_4" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+        <input name="answer_option_4" id="answer_option_4" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
       </div>
     </div>
     <div class="flex items-start items-center mb-6">
@@ -229,9 +229,9 @@
   <div class="flex flex-wrap -mx-3 mb-1">
     <div class="w-full px-3">
       <label class="block dark:text-white uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
-        Jawaban Pilihan 5
+        Jawaban Pilihan 5 <span class="text-xs text-red-500"><i>*required</i></span>
       </label>
-      <input name="answer_option_5" id="answer_option_5" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea" required>
+      <input name="answer_option_5" id="answer_option_5" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="textarea">
     </div>
   </div>
   <div class="flex items-start items-center mb-6">

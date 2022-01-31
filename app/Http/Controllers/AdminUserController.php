@@ -177,6 +177,7 @@ class AdminUserController extends Controller
       $user->teacher_personal_data_id = $get->id;
       $user->role_id = $request->role_id;
       $user->school_id = $request->school_id;
+      $user->is_verified = TRUE;
       $user->is_deleted = FALSE;
       $save2 = $user->save();
 

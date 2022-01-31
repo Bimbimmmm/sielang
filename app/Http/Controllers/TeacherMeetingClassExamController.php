@@ -234,7 +234,7 @@ class TeacherMeetingClassExamController extends Controller
 
         $get=ClassExamQuestion::where(['meeting_exam_id' => $id, 'question' => $request->question])->first();
 
-        if($request->is_multiple_choice == TRUE){
+        if($request->is_multiple_choice == "TRUE"){
 
           $data1 = new ClassExamChoice;
           $data1->meeting_exam_question_id = $get->id;
@@ -357,8 +357,9 @@ class TeacherMeetingClassExamController extends Controller
      public function showcol($id, $idq, $idt)
      {
          $data=ClassExamCollection::where('id', $id)->first();
+         $choices=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $data->id, 'is_multiple_choice' => TRUE])->get();
          $essais=ClassExamCollectionAnswer::where(['meeting_exam_collection_id' => $data->id, 'is_multiple_choice' => FALSE])->get();
-         return view('teacher/teaching/exam/showcol', compact('data', 'id', 'idq', 'idt', 'essais'));
+         return view('teacher/teaching/exam/showcol', compact('data', 'id', 'idq', 'idt', 'essais', 'choices'));
      }
 
      public function inactive($id, $idt)

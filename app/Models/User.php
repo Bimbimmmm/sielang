@@ -75,6 +75,16 @@ class User extends Authenticatable
        return $this->belongsTo('App\Models\StudentPersonalData', 'student_personal_data_id');
      }
 
+     public function parentPersonalData()
+     {
+       return $this->belongsTo('App\Models\ParentPersonalData', 'parent_personal_data_id');
+     }
+
+     public function executivePersonalData()
+     {
+       return $this->belongsTo('App\Models\ExecutivePersonalData', 'executive_personal_data_id');
+     }
+
      public function studentEnrolled()
      {
        return $this->hasMany('App\Models\StudentEnrolled', 'id');

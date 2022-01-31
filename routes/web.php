@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminUserVerifController;
 use App\Http\Controllers\AdminAttendController;
 use App\Http\Controllers\AdminExamController;
 use App\Http\Controllers\AdminLessonPlanController;
@@ -11,6 +12,12 @@ use App\Http\Controllers\AdminLessonResultController;
 use App\Http\Controllers\AdminQuizController;
 use App\Http\Controllers\AdminTaskController;
 use App\Http\Controllers\AdminTeachingHourController;
+use App\Http\Controllers\ExecutiveController;
+use App\Http\Controllers\ExecutiveSchoolDataController;
+use App\Http\Controllers\ExecutiveResultController;
+use App\Http\Controllers\ParentController;
+use App\Http\Controllers\ParentStudentController;
+use App\Http\Controllers\ParentResultDataController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\PrincipalTeachingController;
 use App\Http\Controllers\PrincipalLessonPlanController;
@@ -18,6 +25,8 @@ use App\Http\Controllers\PrincipalSchoolDataController;
 use App\Http\Controllers\PrincipalStudentScoreController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\OperatorUserController;
+use App\Http\Controllers\OperatorStudentVerifController;
+use App\Http\Controllers\OperatorTeacherVerifController;
 use App\Http\Controllers\OperatorClassController;
 use App\Http\Controllers\OperatorSubjectController;
 use App\Http\Controllers\TeacherController;
@@ -82,6 +91,9 @@ Route::get('/administrator', [AdministratorController::class, 'index'])->middlew
 Route::get('/administrator/users', [AdminUserController::class, 'index'])->middleware('can:isAdmin')->name('adminuserindex');
 Route::get('/administrator/users/create', [AdminUserController::class, 'create'])->middleware('can:isAdmin')->name('adminusercreate');
 Route::post('/administrator/users/store', [AdminUserController::class, 'store'])->middleware('can:isAdmin')->name('adminuserstore');
+//Admin User Verif Routes
+Route::get('/administrator/users/verification', [AdminUserVerifController::class, 'index'])->middleware('can:isAdmin')->name('adminuserverifidx');
+Route::get('/administrator/users/verification/{id}', [AdminUserVerifController::class, 'verif'])->middleware('can:isAdmin')->name('adminuserverif');
 //Admin Teaching Hour Routes
 Route::get('/administrator/teachinghour', [AdminTeachingHourController::class, 'index'])->middleware('can:isAdmin')->name('adminthindex');
 Route::get('/administrator/teachinghour/destroy/{id}', [AdminTeachingHourController::class, 'destroy'])->middleware('can:isAdmin')->name('adminthdestroy');
@@ -251,11 +263,18 @@ Route::get('/operator', [OperatorController::class, 'index'])->middleware('can:i
 Route::get('/operator/users', [OperatorUserController::class, 'index'])->middleware('can:isOperator')->name('operatoruserindex');
 Route::get('/operator/users/create', [OperatorUserController::class, 'create'])->middleware('can:isOperator')->name('operatorusercreate');
 Route::post('/operator/users/store', [OperatorUserController::class, 'store'])->middleware('can:isOperator')->name('operatoruserstore');
+//Operator Student Verif Routes
+Route::get('/operator/users/studentverif', [OperatorStudentVerifController::class, 'index'])->middleware('can:isOperator')->name('operatorstdindex');
+Route::get('/operator/users/studentverif/{id}', [OperatorStudentVerifController::class, 'verif'])->middleware('can:isOperator')->name('operatorstdverif');
+//Operator Teacher Verif Routes
+Route::get('/operator/users/teacherverif', [OperatorTeacherVerifController::class, 'index'])->middleware('can:isOperator')->name('operatortchindex');
+Route::get('/operator/users/teacherverif/{id}', [OperatorTeacherVerifController::class, 'verif'])->middleware('can:isOperator')->name('operatortchverif');
 
 //Operator Class Routes
 Route::get('/operator/class', [OperatorClassController::class, 'index'])->middleware('can:isOperator')->name('operatorclassindex');
 Route::get('/operator/class/create', [OperatorClassController::class, 'create'])->middleware('can:isOperator')->name('operatorclasscreate');
 Route::post('/operator/class/store', [OperatorClassController::class, 'store'])->middleware('can:isOperator')->name('operatorclasstore');
+
 
 //Operator Subject Routes
 Route::get('/operator/subject', [OperatorSubjectController::class, 'index'])->middleware('can:isOperator')->name('operatorsubjectindex');
@@ -263,3 +282,18 @@ Route::get('/operator/subject/create', [OperatorSubjectController::class, 'creat
 Route::post('/operator/subject/store', [OperatorSubjectController::class, 'store'])->middleware('can:isOperator')->name('operatorsubjecttore');
 
 //EXECUTIVE ROUTES
+Route::get('/executive', [ExecutiveController::class, 'index'])->middleware('can:isExecutive')->name('executive');
+//Executive School Data Routes
+Route::get('/executive/schooldata', [ExecutiveSchoolDataController::class, 'index'])->middleware('can:isExecutive')->name('executivesd');
+Route::get('/executive/schooldata/show/{id}', [ExecutiveSchoolDataController::class, 'show'])->middleware('can:isExecutive')->name('executivesdshow');
+//Executive Result Routes
+Route::get('/executive/result', [ExecutiveResultController::class, 'index'])->middleware('can:isExecutive')->name('executivers');
+Route::get('/executive/result/show/{id}', [ExecutiveResultController::class, 'show'])->middleware('can:isExecutive')->name('executivershow');
+Route::get('/executive/result/showth/{id}/{sid}', [ExecutiveResultController::class, 'showth'])->middleware('can:isExecutive')->name('executivershowth');
+
+//PARENT ROUTES
+Route::get('/parents', [ParentController::class, 'index'])->middleware('can:isParents')->name('parents');
+//Parent Student Data Routes
+Route::get('/parents/studentdata', [ParentStudentController::class, 'index'])->middleware('can:isParents')->name('parentssd');
+//Parent Student Data Routes
+Route::get('/parents/result', [ParentResultDataController::class, 'index'])->middleware('can:isParents')->name('parentresult');
